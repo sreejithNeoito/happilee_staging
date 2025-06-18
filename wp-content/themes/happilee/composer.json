@@ -1,0 +1,17 @@
+{
+    "name": "happilee/theme",
+    "description": "composer for happilee theme",
+    "autoload": {
+        "psr-4": {
+            "Happilee\\Theme\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "musthafam"
+        }
+    ],
+    "require": {
+        "endroid/qr-code": "^5.1"
+    }
+}
