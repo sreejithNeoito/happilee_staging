@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default. Please note that
+ * this is the WordPress construct of pages: specifically, posts with a post
+ * type of `page`.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package happilee
+ */
+
+get_header();
+?>
+<main id="main">
+
+	<section class="container py-10 flex justify-center items-center">
+		<div class=" smd:max-w-[320px] w-[360px] h-[240px] rounded-2xl flex flex-col justify-center items-center gap-6 bg-bg-footer">
+			<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path opacity="0.25" d="M24.7931 0.00683594C29.998 0.141833 35.2179 2.0468 39.7028 5.97672C43.4378 9.26166 45.9727 13.2816 47.1877 18.0665C48.8227 24.4264 48.0127 30.5312 44.5477 36.1261C43.6328 37.6111 44.1878 38.9011 44.3678 40.2661C44.6527 42.321 45.0727 44.346 45.3877 46.4009C45.5677 47.5559 45.0727 47.9609 43.9928 47.5709C41.5928 46.7009 39.2078 45.816 36.8229 44.886C36.3879 44.721 36.0429 44.706 35.6679 44.931C32.878 46.5509 29.848 47.5409 26.6531 47.8559C23.5032 48.1709 20.3682 47.9609 17.2933 47.0309C12.7184 45.666 8.87843 43.161 5.80349 39.5611C2.62355 35.8411 0.748585 31.5062 0.163597 26.5863C-0.406392 21.7264 0.52359 17.1665 2.78855 12.8766C5.48849 7.76169 9.55342 4.10176 14.8933 1.8368C17.8483 0.591825 20.8932 0.0368354 24.7931 0.00683594ZM24.1481 41.451C29.908 41.451 35.6679 38.5111 39.0279 33.8012C40.8728 31.2062 42.1028 28.3563 42.3728 25.1464C42.4478 24.2614 42.1028 23.6014 41.3378 23.1814C39.9428 22.4164 38.3229 23.3464 38.0079 25.1164C37.3779 28.6713 35.7579 31.6262 32.923 33.9512C27.5381 38.3461 19.3482 38.0161 14.3833 33.1262C12.1484 30.9212 10.7984 28.2513 10.3034 25.1614C10.1384 24.1864 9.56842 23.5564 8.78843 23.1064C8.05345 22.6714 7.30346 22.9114 6.65847 23.3614C5.78849 23.9614 5.81849 24.8614 5.93849 25.7613C7.22846 34.6562 15.1333 41.466 24.1481 41.451Z" fill="#0B3966" />
+			</svg>
+			<h1 class="text-24 leading-[26.11px] text-primary">Page Coming Soon!</h1>
+			<p class="text-14 leading-4 text-primary">Stay Tuned. Thank You!</p>
+		</div>
+	</section>
+
+</main><!-- #main -->
+
+<?php
+get_footer();
