@@ -3,7 +3,7 @@
         <div class="relative mdd:flex mdd:items-end mdd:w-full smd:max-w-[300px] smd:flex-col">
             <!-- smd:max-w-[300px] smd:flex-col -->
             <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]"><span class="md:block">Boom your</span> <b>Business on
-                    <span class=" text-[#28B53E]">WhatsApp</span></b>
+                    <span class=" text-[#28B53E]">Whatsapp</span></b>
             </h1>
             <!-- <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">Boom your <b class="block">Business on <span class="text-[#28B53E]">WhatsApp</span></b>
             </h1> -->
