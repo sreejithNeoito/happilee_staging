@@ -1,0 +1,58 @@
+name: Deploy to EC2
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            echo "🚀 Starting deployment to production server..."
+            echo "⏰ Deployment started at: $(date)"
+
+            echo "📂 Navigating to project directory..."
+            cd /var/www/website/happilee/happilee_website
+            echo "✅ Current directory: $(pwd)"
+
+            echo "🔧 Setting up git authentication..."
+            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/happilee-app/happilee_website.git
+            echo "✅ Git authentication configured"
+
+            echo "📥 Pulling latest changes from main branch..."
+            if sudo -u www-data git pull origin main; then
+              echo "✅ Git pull completed successfully"
+            else
+              echo "❌ Git pull failed!"
+              exit 1
+            fi
+
+            echo "🧹 Cleaning up git authentication..."
+            sudo -u www-data git remote set-url origin https://github.com/happilee-app/happilee_website.git
+            echo "✅ Git authentication cleaned up"
+
+            echo "🔒 Setting file permissions..."
+            sudo chmod -R 755 .
+            sudo chmod -R 775 wp-content/uploads/ 2>/dev/null || true
+            echo "✅ File permissions updated"
+
+            echo "🔄 Restarting services..."
+            if sudo systemctl reload nginx; then
+              echo "✅ Nginx reloaded successfully"
+            else
+              echo "❌ Nginx reload failed!"
+            fi
+
+            if sudo systemctl restart php8.1-fpm; then
+              echo "✅ PHP-FPM restarted successfully"
+            else
+              echo "❌ PHP-FPM restart failed!"
+            fi
+
+            echo "🎉 Deployment completed successfully!"
+            echo "⏰ Deployment finished at: $(date)"
