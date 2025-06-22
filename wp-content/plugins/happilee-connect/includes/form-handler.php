@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 add_shortcode('whatsapp_phone_form', 'wpc_render_form');
 
 function wpc_render_form() {
@@ -19,12 +23,9 @@ function wpc_render_form() {
                     </linearGradient>
                 </defs>
             </svg>
-
                 <div class="text-white text-16 leading-[20px] font-semibold">Connect!</div>
-
         </button>
     </form>
-   
     <?php
     return ob_get_clean();
 }
@@ -32,7 +33,6 @@ function wpc_render_form() {
 function happilee_whatsapp_contact() {
    
     global $wpdb;
-
     $phone          = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
     $country_code   = isset($_POST['country_code']) ? sanitize_text_field($_POST['country_code']) : '';
     $table_name     = $wpdb->prefix . 'happilee_user_data';
@@ -52,9 +52,7 @@ function happilee_whatsapp_contact() {
     } else {
         wp_send_json_error(['message' => "Something went wrong."]);
     }
-
     wp_die();
-
 }
 
 add_action( 'wp_ajax_happilee_whatsapp_contact', 'happilee_whatsapp_contact' );
