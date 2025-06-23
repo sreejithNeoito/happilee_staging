@@ -27,8 +27,8 @@ jQuery(document).ready(function($) {
         var dialCode = iti.getSelectedCountryData().dialCode;
 
         $.ajax({
-            // url: ajaxurl,
-            url: hpl_ajax_object.ajax_url,
+            url: ajaxurl,
+            // url: hpl_ajax_object.ajax_url,
             type: 'POST',
             data: {
                 action: 'happilee_whatsapp_contact',
