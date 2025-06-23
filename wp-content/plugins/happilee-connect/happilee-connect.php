@@ -42,12 +42,12 @@ function happilee_frontend_scripts(){
 add_action('wp_enqueue_scripts', 'happilee_frontend_scripts');
 
 
-// function hpl_con_ajaxurl() {
-// 	echo '<script type="text/javascript">
-//            var ajaxurl = "' . admin_url('admin-ajax.php') . '";
-//          </script>';
-// }
-// add_action('wp_head', 'hpl_con_ajaxurl');
+function hpl_con_ajaxurl() {
+	echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+add_action('wp_head', 'hpl_con_ajaxurl');
 
 register_activation_hook(__FILE__, 'happilee_create_table');
 
