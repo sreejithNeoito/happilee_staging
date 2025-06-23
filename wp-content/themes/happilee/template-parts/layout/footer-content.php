@@ -244,7 +244,8 @@
     </div>
     
     <div class="happile-whatsapp">	
-        <a href="https://api.whatsapp.com/send?phone=97336670857&amp;text=Hello👋 I have a question about your service on fablandbh.com." target="_blank">
+        <a href="https://api.whatsapp.com/send/?phone=918848803679&text=Hello, I want to know about https://happilee.io/&type=phone_number&app_absent=0" target="_blank">
+            
             <svg width="60" height="60" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
                 <path
                     fill="#EDEDED"
