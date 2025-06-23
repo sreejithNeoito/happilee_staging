@@ -9,7 +9,7 @@
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 11C1 8.62222 1 6.88049 1 5.00027C1 2.79114 2.78673 1 4.99586 1C8.22603 1 12.8952 1 17.0016 1C19.2107 1 21 2.78931 21 4.99845C21 9.10482 21 13.774 21 17.0041C21 19.2133 19.2091 21 17 21H11M5.44444 11H11M11 11V16.5556M11 11L1 21" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <h5 class="text-32 leading-[34px] font-semibold">600+</h5>
+            <h5 class="text-32 leading-[34px] font-semibold">1200+</h5>
             <div class="text-16 leading-5">Businesses <br>
                 Use Happilee</div>
         </div>
