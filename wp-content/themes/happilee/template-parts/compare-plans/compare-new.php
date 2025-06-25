@@ -36,7 +36,7 @@ $planDetails = [
     'basic' => ['label' => 'Basic', 'color' => '#FFF5C2', 'price_inr' => '₹125', 'price_usd' => '$1.50'],
     'growth' => ['label' => 'Growth', 'color' => '#C4F5C4', 'price_inr' => '₹325', 'price_usd' => '$3.90'],
     'advanced' => ['label' => 'Advanced', 'color' => '#CEE1F5', 'price_inr' => '₹750', 'price_usd' => '$9.00']
-];
+]; ?>
 
 <div class="container py-10">
     <div class="flex justify-between items-center flex-col md:flex-row mb-4">

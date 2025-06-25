@@ -128,7 +128,7 @@ $index = 0;
                                 ? '<span style="font-size:14px; font-weight:700; color:#1a1a1a;"> +GST</span>' : '' ?>
                         </span>
                     </span>
-                    <span class="duration-text font-normal text-black opacity-60">
+                    <span class="duration-text price-duration font-normal text-black opacity-60">
                         <?php echo esc_attr($plan['pricing']['monthly']['enabled'] ? '/ Month' : ''); ?>
                     </span>
                 </p>
