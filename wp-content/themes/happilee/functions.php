@@ -155,13 +155,7 @@ if (! function_exists('happilee_setup')) :
 			}
 		}
 
-
-
-
 		// You may need to adjust your theme's functions.php or the place where you render the menu to use this custom walker
-
-
-
 
 		class Custom_Walker_Primary_End extends Walker_Nav_Menu
 		{
@@ -422,6 +416,34 @@ if (file_exists($composer_autoload)) {
 	require_once $composer_autoload;
 }
 
+/*
+ * Happilee login URL
+ * @since june 2023
+ */
+
+function happilee_login_logo() {
+	$logo_url = get_template_directory_uri() . '/assets/images/logo.png';
+	echo '<style type="text/css">
+		#login h1 a, .login h1 a {
+			background-image: url("' . esc_url($logo_url) . '");
+			height: 80px;
+			width: 300px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			padding-bottom: 10px;
+		}
+	</style>';
+}
+add_action('login_enqueue_scripts', 'happilee_login_logo');
+
+/**
+ *  Change wordpress login logo URL 
+ */
+
+function happilee_login_logo_url() {
+    return home_url();
+}
+add_filter('login_headerurl', 'happilee_login_logo_url');
 
 /**
  * Custom template tags for this theme.
