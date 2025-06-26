@@ -33,7 +33,7 @@ function happilee_frontend_scripts(){
 
      // Localize script with AJAX URL or other variables
     wp_localize_script('happilee-custom-js', 'hpl_ajax_object', array(
-        'ajax_url' => admin_url('admin-ajax.php'),
+        // 'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('hpl_ajax_nonce')
     ));
 	wp_enqueue_script('happilee-custom-js');
@@ -42,12 +42,12 @@ function happilee_frontend_scripts(){
 add_action('wp_enqueue_scripts', 'happilee_frontend_scripts');
 
 
-// function hpl_con_ajaxurl() {
-// 	echo '<script type="text/javascript">
-//            var ajaxurl = "' . admin_url('admin-ajax.php') . '";
-//          </script>';
-// }
-// add_action('wp_head', 'hpl_con_ajaxurl');
+function hpl_con_ajaxurl() {
+	echo '<script type="text/javascript">
+           var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+         </script>';
+}
+add_action('wp_head', 'hpl_con_ajaxurl');
 
 register_activation_hook(__FILE__, 'happilee_create_table');
 
