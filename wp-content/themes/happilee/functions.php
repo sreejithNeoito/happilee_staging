@@ -155,7 +155,13 @@ if (! function_exists('happilee_setup')) :
 			}
 		}
 
+
+
+
 		// You may need to adjust your theme's functions.php or the place where you render the menu to use this custom walker
+
+
+
 
 		class Custom_Walker_Primary_End extends Walker_Nav_Menu
 		{
@@ -254,11 +260,6 @@ function happilee_scripts()
 	wp_enqueue_style('owl-theme', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css');
 	wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), null, true);
 	// }
-
-	//Happilee custom styles and scripts
-	
-	wp_enqueue_style('happilee-style', get_stylesheet_uri(), array(), HAPPILEE_VERSION);
-	wp_enqueue_style('happilee-custom-style', get_template_directory_uri() . '/assets/css/custom.css', array(), HAPPILEE_VERSION);
 
 	wp_enqueue_style('happilee-style', get_stylesheet_uri(), array(), HAPPILEE_VERSION);
 	wp_enqueue_script('happilee-script', get_template_directory_uri() . '/js/script.min.js', array('jquery'), HAPPILEE_VERSION, true);
