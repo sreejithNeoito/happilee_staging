@@ -29,11 +29,11 @@ require_once (HAPPILE_PLUGIN_DIR . '/includes/happilee-list-table.php');
 
 function happilee_frontend_scripts(){
 
-	wp_register_script('happilee-custom-js', plugins_url('assets/js/custom.js', __FILE__), array('jquery'), HAPPILE_VERSION, false);
+	wp_register_script('happilee-custom-js', plugins_url('assets/js/custom.js', __FILE__), array('jquery'), HAPPILE_VERSION, true);
 
      // Localize script with AJAX URL or other variables
     wp_localize_script('happilee-custom-js', 'hpl_ajax_object', array(
-        // 'ajax_url' => admin_url('admin-ajax.php'),
+        'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('hpl_ajax_nonce')
     ));
 	wp_enqueue_script('happilee-custom-js');
