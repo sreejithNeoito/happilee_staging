@@ -25,7 +25,7 @@ jobs:
             echo "✅ Git authentication configured"
 
             echo "📥 Pulling latest changes from main branch..."
-            if sudo -u www-data git fetch --all && git reset --hard origin/main; then
+            if sudo -u www-data git fetch --all && git pull origin main; then
               echo "✅ Git pull completed successfully"
             else
               echo "❌ Git pull failed!"
