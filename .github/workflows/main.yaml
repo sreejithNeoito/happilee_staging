@@ -21,7 +21,7 @@ jobs:
             echo "✅ Current directory: $(pwd)"
 
             echo "🔧 Setting up git authentication..."
-            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/happilee-app/happilee_website.git
+            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/happilee-app/happilee_website.git && sudo -u www-data git stash save
             echo "✅ Git authentication configured"
 
             echo "📥 Pulling latest changes from main branch..."
