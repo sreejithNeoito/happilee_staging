@@ -8,7 +8,7 @@ add_shortcode('whatsapp_phone_form', 'wpc_render_form');
 
 function wpc_render_form() {
     ob_start(); ?>
-    <form id="wpc-form" class="justify-start items-center gap-2 flex smd:flex-col smd:gap-1">
+    <form id="wpc-form" class="justify-start items-center gap-2 flex smd:flex-col smd:gap-0">
         <input type="tel" class="shadow appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" name="phone" placeholder="123-456-7890" required><br>
         <button class="px-[15px] py-[10px] bg-[#1e9933] rounded-[10px] justify-center items-center gap-2.5 flex smd:w-full" type="submit">
 
