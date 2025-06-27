@@ -47,6 +47,7 @@ function hpl_con_ajaxurl() {
            var ajaxurl = "' . admin_url('admin-ajax.php') . '";
          </script>';
 }
+
 add_action('wp_head', 'hpl_con_ajaxurl');
 
 register_activation_hook(__FILE__, 'happilee_create_table');
