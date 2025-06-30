@@ -55,7 +55,9 @@ $posts = new WP_Query(array(
                         </div>
                     <?php endif; ?>
                 </div>
-                <h2 class="text-20 leading-5 text-primary font-semibold"><?php the_title(); ?></h2>
+                <h2 class="text-20 leading-5 text-primary font-semibold">
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </h2>
                 <div class="author flex gap-2 items-center justify-start">
                     <div class="text-14 leading-4"><?php the_author(); ?></div>
                     <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
