@@ -60,7 +60,7 @@
             <img data-aos="zoom-in" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/1/feat-1.webp" alt="" class="relative bg-transparent z-10 w-full feat-image">
             <div class="w-[468px] h-[480px] feature relative">
                 <div class="w-[320px] h-[200px] bg-[#CCFFCC] rounded-3xl absolute bottom-7 right-[30px] person">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/1/person.webp" alt="" class="absolute bottom-0 right-5 z-50 w-[270px] h-[320px]" width="270" height="320">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/1/person.webp" alt="Happilee Chatbot Builder" class="absolute bottom-0 right-5 z-50 w-[270px] h-[320px]" width="270" height="320">
                 </div>
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/1/box1.webp" alt="" class="box-1 w-[160px] h-[250px]" width="160" height="250">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/1/box2.webp" alt="" class="box-2 w-[200px] h-[144px]" width="200" height="144">
@@ -161,7 +161,7 @@
 
             <div class="w-[468px] h-[480px] feature relative">
                 <div class="w-[320px] h-[200px] bg-[#FFDDD6] rounded-3xl absolute bottom-0 left-5 right-0 person">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/2/person.webp" alt="" class="absolute bottom-0 left-5 z-50 w-[240px] h-[320px]" width="240" height="320">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/2/person.webp" alt="WhatsApp Shared Team Inbox" class="absolute bottom-0 left-5 z-50 w-[240px] h-[320px]" width="240" height="320">
                     <svg class="absolute -top-[30px] left-5 z-30" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="48" height="48" rx="10" fill="url(#paint0_linear_791_2436)" />
                         <path d="M19.5 26.25H25.5M19.5 21.75H28.5M21.5944 12.2316C16.8078 13.1254 13.0682 16.9981 12.1707 21.7647C11.7219 24.5948 12.1707 27.4249 13.3674 29.6592L12.0211 35.4684C12.0211 35.7663 12.1707 35.9152 12.4699 35.9152L18.3036 34.5746C20.5474 35.7663 23.3894 36.3621 26.2315 35.7663C31.0182 34.8725 34.9073 31.1487 35.8048 26.3822C37.3007 17.8919 29.9711 10.5932 21.5944 12.2316Z" stroke="white" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
@@ -191,7 +191,7 @@
                 <div class="w-[320px] h-[200px] bg-[#FFF5C2] rounded-3xl absolute bottom-[50px] z-10 right-5">
                 </div>
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/3/person.webp" width="360"
-                    height="320" alt="" class="absolute right-5 z-50 person bottom-[50px]">
+                    height="320" alt="WhatsApp Broadcast Messages" class="absolute right-5 z-50 person bottom-[50px]">
                 <div class="box-3">
                     <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/3/box3.webp" alt="">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute -bottom-9 left-5">
@@ -290,7 +290,7 @@
 
             <div class="w-[468px] h-[480px] feature relative">
                 <div class="w-[320px] h-[200px] bg-[#CCFFCC] rounded-3xl absolute bottom-0 right-5 person">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/4/person.webp" alt="" class="absolute bottom-0 z-50">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/4/person.webp" alt="WhatsApp Commerce Store" class="absolute bottom-0 z-50">
                 </div>
 
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/4/box1.webp" alt="" class="box-1">
@@ -324,7 +324,7 @@
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/5/box3.webp" alt="" class="box-3">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/5/box2.webp" alt="" class="box-2">
                 <div class="w-[320px] h-[200px] bg-[#FFDDD6] rounded-3xl absolute bottom-11 right-5 person">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/5/person.webp" alt="" class="absolute z-50 bottom-0">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/5/person.webp" alt="WhatsApp Scheduler" class="absolute z-50 bottom-0">
                 </div>
                 <div class="box-1">
                     <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/5/box1.webp" alt="">
@@ -423,7 +423,7 @@
 
             <div class="w-[468px] h-[480px] feature relative">
                 <div class="w-[320px] h-[200px] bg-[#CEE1F5] rounded-3xl absolute bottom-[26px] right-5 person">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/6/person.webp" alt="" class="absolute bottom-0">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/features/6/person.webp" alt="Meta Leads CRM" class="absolute bottom-0">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute -top-[18px] -left-[17px]">
                         <rect width="48" height="48" rx="10" fill="url(#paint0_linear_827_913)" />
                         <path d="M24 20.1357C22.3345 17.2249 20.3143 15 17.9857 15C15.6571 15 11 18.3457 11 26.1747C11 31.9461 12.4341 33 13.9609 33C17.8933 33 22.0724 24.184 24 20.1357ZM24 20.1357C25.6655 17.2249 27.6857 15 30.0143 15C32.3429 15 37 18.3457 37 26.1747C37 31.9461 35.5659 33 34.0391 33C30.1067 33 25.9276 24.184 24 20.1357Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
