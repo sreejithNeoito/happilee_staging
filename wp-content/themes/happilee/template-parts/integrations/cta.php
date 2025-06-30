@@ -40,10 +40,10 @@
                 </div>
             </div>
             <div class="flex gap-4">
-                <a href="#" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="https://happilee.io/book-a-demo/" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Book Demo
                 </a>
-                <a href="#" class="bg-primary border block w-max border-primary  text-white text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     <span class="mdd:hidden">Start</span> FREE Trial
                 </a>
             </div>

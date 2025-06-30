@@ -61,7 +61,7 @@
 
     <div class="flex gap-6  p-8 flex-col items-center justify-center text-center">
         <h2 class="text-25 leading-[26px] text-primary">Can’t find what you <b>exactly looking for? </b></h2>
-        <a href="#" class="bg-primary border block w-max border-primary  text-white text-16 smd:text-14 leading-5 font-semibold  py-[10px] px-5 rounded-[20px]">
+        <a href="https://happilee.io/contact-us/" class="bg-primary border block w-max border-primary  text-white text-16 smd:text-14 leading-5 font-semibold  py-[10px] px-5 rounded-[20px]">
             Request Integration</a>
     </div>
 </section>
