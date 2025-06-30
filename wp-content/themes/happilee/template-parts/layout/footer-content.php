@@ -243,7 +243,9 @@
         </div>
     </div>
     
-    <div class="fixed bottom-[50px] right-[20px] z-10">	
+    <!-- ------------------------------------------------ WhatsApp Chat Button --------------------------------- -->
+
+    <div class="fixed bottom-[50px] right-[20px] z-999">	
         <a href="https://api.whatsapp.com/send/?phone=918848803679&text=Hello, I want to know about https://happilee.io/&type=phone_number&app_absent=0" target="_blank">
             
             <svg width="60" height="60" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -270,6 +272,9 @@
             </svg>
         </a>
     </div>
+
+    <!-- ----------------------------------------  WhatsApp Chat Button end --------------------------------- -->
+     
 
     <div class="border-t border-[#0B39661A]">
         <div class="container flex justify-between items-center text-14 leading-4 py-5 mdd:p-5 mdd:flex-col mdd:gap-2">
