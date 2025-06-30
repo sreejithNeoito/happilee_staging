@@ -3,7 +3,7 @@
         <div class="rounded-[10px] w-max text-20 leading-[22px] text-primary">Integrations</div>
         <h1 class="font-semibold text-40 leading-[44px] text-primary">Seamlessly Integrate WhatsApp with your business tech stack</h1>
         <p class="text-16 leading-[24px]">Enjoy brilliant integrations with your preferred e-commerce platforms, CRMs, e-stores, and more with Happilee.</p>
-        <a href="https://app.happilee.io/auth/signup/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+        <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
             Start FREE Trial
         </a>
     </div>
