@@ -68,15 +68,36 @@ $index = 0;
                     </div>
                     <div class="cursor-pointer gap-2 px-4 py-2 hover:bg-gray-100 flex justify-between items-center duration-option" data-duration="quarterly">
                         <span>Quarterly</span>
-                        <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">8%</span>
+                        <!-- <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">8%</span> -->
+                        <span class="bg-[#28B53E] flex justify-center items-center gap-1 p-1 rounded">
+                            <svg class="shrink-0" width="15" height="15" fill="white" viewBox="0 0 16 16">
+                                <path d="M7 2.85714C7 2.38376 7.44772 2 8 2C8.55228 2 9 2.38376 9 2.85714V8C9 8.47339 8.55228 8.85714 8 8.85714C7.44772 8.85714 7 8.47339 7 8V2.85714Z" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0455 7.14286C11.794 7.14286 12.2503 7.97571 11.8536 8.61778L8.80813 13.5469C8.43488 14.151 7.56513 14.151 7.19187 13.5469L4.14638 8.61778C3.74967 7.97571 4.206 7.14286 4.95451 7.14286H11.0455Z" />
+                            </svg>
+                            <span class="text-sm font-medium leading-4 text-white">8%</span>
+                        </span>
                     </div>
                     <div class="cursor-pointer gap-2 px-4 py-2 hover:bg-gray-100 flex justify-between items-center duration-option" data-duration="half_yearly">
                         <span>Half-Yearly</span>
-                        <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">15%</span>
+                        <!-- <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">15%</span> -->
+                        <span class="bg-[#28B53E] flex justify-center items-center gap-1 p-1 rounded">
+                            <svg class="shrink-0" width="15" height="15" fill="white" viewBox="0 0 16 16">
+                                <path d="M7 2.85714C7 2.38376 7.44772 2 8 2C8.55228 2 9 2.38376 9 2.85714V8C9 8.47339 8.55228 8.85714 8 8.85714C7.44772 8.85714 7 8.47339 7 8V2.85714Z" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0455 7.14286C11.794 7.14286 12.2503 7.97571 11.8536 8.61778L8.80813 13.5469C8.43488 14.151 7.56513 14.151 7.19187 13.5469L4.14638 8.61778C3.74967 7.97571 4.206 7.14286 4.95451 7.14286H11.0455Z" />
+                            </svg>
+                            <span class="text-sm font-medium leading-4 text-white">15%</span>
+                        </span>
                     </div>
                     <div class="cursor-pointer gap-2 px-4 py-2 hover:bg-gray-100 flex justify-between items-center duration-option" data-duration="yearly">
                         <span>Yearly</span>
-                        <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">20%</span>
+                        <!-- <span class="bg-[#28B53E] text-white text-sm font-medium px-2 py-0.5 rounded">20%</span> -->
+                        <span class="bg-[#28B53E] flex justify-center items-center gap-1 p-1 rounded">
+                            <svg class="shrink-0" width="15" height="15" fill="white" viewBox="0 0 16 16">
+                                <path d="M7 2.85714C7 2.38376 7.44772 2 8 2C8.55228 2 9 2.38376 9 2.85714V8C9 8.47339 8.55228 8.85714 8 8.85714C7.44772 8.85714 7 8.47339 7 8V2.85714Z" />
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0455 7.14286C11.794 7.14286 12.2503 7.97571 11.8536 8.61778L8.80813 13.5469C8.43488 14.151 7.56513 14.151 7.19187 13.5469L4.14638 8.61778C3.74967 7.97571 4.206 7.14286 4.95451 7.14286H11.0455Z" />
+                            </svg>
+                            <span class="text-sm font-medium leading-4 text-white">20%</span>
+                        </span>
                     </div>
                 </div>
             </div>
