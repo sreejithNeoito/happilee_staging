@@ -245,7 +245,7 @@
     
     <!-- ------------------------------------------------ WhatsApp Chat Button --------------------------------- -->
 
-    <div class="fixed bottom-[50px] right-5">	
+    <div class="fixed bottom-[50px] right-5 z-50">	
         <a href="https://api.whatsapp.com/send/?phone=918848803679&text=Hello, I want to know about https://happilee.io/&type=phone_number&app_absent=0" target="_blank">
             
             <svg width="60" height="60" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
