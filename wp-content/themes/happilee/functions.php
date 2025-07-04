@@ -183,6 +183,16 @@ if (! function_exists('happilee_setup')) :
 		}
 
 
+		class Custom_Walker_Footer_Menu extends Walker_Nav_Menu
+		{
+			function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+			{
+				$output .= '<a href="' . esc_url($item->url) . '" class="text-16 leading-[19px] text-primary">';
+				$output .= esc_html($item->title);
+				$output .= '</a>';
+			}
+		}
+
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -419,7 +429,7 @@ if (file_exists($composer_autoload)) {
 
 /*
  * Happilee login URL
- * @since june 2023
+ * @since june 2025
  */
 
 function happilee_login_logo() {
@@ -438,7 +448,7 @@ function happilee_login_logo() {
 add_action('login_enqueue_scripts', 'happilee_login_logo');
 
 /**
- *  Change wordpress login logo URL 
+ *  Change wordpress login logo URL
  */
 
 function happilee_login_logo_url() {
@@ -474,6 +484,7 @@ require get_template_directory() . '/inc/landing_cf.php';
 
 require get_template_directory() . '/inc/pricing_cf.php';
 
+require get_template_directory() . '/inc/theme_option_cf.php';
 
 
 /**

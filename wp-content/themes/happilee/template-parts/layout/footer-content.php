@@ -35,9 +35,20 @@
             <div class="flex flex-col gap-6 flex-1">
                 <h2 class="text-16 leading-8 font-semibold text-primary mdd:font-semibold">Company</h2>
                 <div class="flex flex-col gap-2">
-                    <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/privacy-policy/')); ?>">Privacy Policy</a>
+                    <!-- <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/privacy-policy/')); ?>">Privacy Policy</a>
                     <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/terms-of-use/')); ?>">Terms of Use</a>
-                    <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/blog/')); ?>">Blog</a>
+                    <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/blog/')); ?>">Blog</a> -->
+
+                    <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-3',
+                            'items_wrap' => '%3$s',
+                            'container' => false,
+                            'fallback_cb' => false,
+                            'depth' => 1,
+                            'walker' => new Custom_Walker_Footer_Menu(),
+                        ));
+			        ?>
                 </div>
                 <div class="flex gap-4">
                     <a href="https://www.linkedin.com/company/happilee" target="_blank"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,38 +254,45 @@
         </div>
     </div>
     
-    <!-- ------------------------------------------------ WhatsApp Chat Button --------------------------------- -->
+    <!-- ----------------------------------------- Happilee Chatbot --------------------------------------------->
 
-    <div class="fixed bottom-[50px] right-5 z-50">	
-        <a href="https://api.whatsapp.com/send/?phone=918848803679&text=Hello, I want to know about https://happilee.io/&type=phone_number&app_absent=0" target="_blank">
-            
-            <svg width="60" height="60" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
-                <path
-                    fill="#EDEDED"
-                    d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0
-                    S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z"
-                />
-                <path
-                    fill="#55CD6C"
-                    d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662
-                    c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234
-                    c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z"
-                />
-                <path
-                    fill="#FEFEFE"
-                    d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297
-                    c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048
-                    c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359
-                    c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248
-                    c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062
-                    l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945"
-                />
+    <div id="chat-popup" class="hidden flex w-80 px-6 pt-6 pb-3 flex-col items-start gap-4 rounded-2xl border-2 border-[#1B982F] bg-[#FEFEFE] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.25)] fixed bottom-[50px] right-9 z-[1000]">
+
+         <!-- Close Button -->
+        <button id="close-popup" class="absolute top-3 right-4 w-8 h-8 flex items-center justify-center" aria-label="Close">
+            <svg class="w-[23px] h-[23px] text-black" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
+        </button>
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mascot.svg" alt="happilee mascot" class="w-[120px] bottom-[164px] right-[52px] drop-shadow-[4px_0_8px_rgba(0,0,0,0.15)] absolute">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/happilee-logo.svg" alt="happilee chatbot logo">
+        I checked the website and have a few questions to ask.
+        <a href="https://api.whatsapp.com/send/?phone=918848803679&text=I checked the website and have a few questions to ask.&type=phone_number&app_absent=0" target="_blank" class="font-semibold text-[14px] font-second w-full" >
+            <div class="flex justify-center items-center gap-2 bg-[#1e9933] text-white px-4 py-2 rounded-[8px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M0.0833333 9.90875C0.0833333 11.6549 0.541667 13.3596 1.4125 14.8611L0 20L5.27917 18.623C6.73333 19.411 8.37083 19.8299 10.0375 19.8299H10.0417C15.5292 19.8299 19.9958 15.3837 20 9.92119C20 7.27499 18.9667 4.78225 17.0875 2.91165C15.2042 1.03277 12.7042 0 10.0417 0C4.55417 0 0.0875 4.44629 0.0833333 9.90875Z" fill="white" />
+                    <path d="M1.075 9.91788C1.075 11.4894 1.4875 13.0236 2.27125 14.3749L1 19L5.75125 17.7607C7.06 18.4699 8.53375 18.847 10.0338 18.847H10.0375C14.9763 18.847 18.9963 14.8453 19 9.92907C19 7.54749 18.07 5.30402 16.3787 3.62049C14.6837 1.92949 12.4338 1 10.0375 1C5.09875 1 1.07875 5.00166 1.075 9.91788Z" fill="url(#paint0_linear_470_3448)" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.36251 5.43344C7.16251 4.98964 6.95001 4.98134 6.75834 4.97305C6.60001 4.96475 6.42084 4.96475 6.24584 4.96475C6.06667 4.96475 5.77501 5.03111 5.52917 5.30071C5.28334 5.56616 4.59167 6.2132 4.59167 7.528C4.59167 8.84281 5.55417 10.112 5.68751 10.2903C5.82084 10.4687 7.54584 13.2518 10.2708 14.3219C12.5375 15.2136 13 15.0353 13.4917 14.9896C13.9833 14.944 15.0792 14.3426 15.3042 13.7205C15.5292 13.0983 15.5292 12.5633 15.4625 12.4513C15.3958 12.3393 15.2167 12.2729 14.95 12.1402C14.6833 12.0075 13.3625 11.3604 13.1167 11.2692C12.8708 11.1821 12.6917 11.1365 12.5125 11.4019C12.3333 11.6674 11.8208 12.2688 11.6625 12.4471C11.5042 12.6255 11.35 12.6462 11.0792 12.5135C10.8125 12.3808 9.94584 12.0987 8.92084 11.1862C8.12501 10.477 7.58334 9.60183 7.42917 9.33638C7.27084 9.07093 7.41251 8.92576 7.54584 8.79304C7.66667 8.67276 7.81251 8.48196 7.95001 8.32435C8.08334 8.16674 8.12917 8.0589 8.21667 7.88055C8.30417 7.70221 8.26251 7.54459 8.19584 7.41187C8.12084 7.28329 7.60001 5.96019 7.36251 5.43344Z" fill="white" />
+                    <defs>
+                        <linearGradient id="paint0_linear_470_3448" x1="10.0013" y1="18.9719" x2="10.0013" y2="0.974382" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#20B038" />
+                            <stop offset="1" stop-color="#60D66A" />
+                        </linearGradient>
+                    </defs>
+                </svg>Chat With Us
+            </div>
         </a>
+        <div class="text-xs text-gray-500">Powered by <a href="https://happilee.io" target="_blank" class="text-gray-900">happilee.io</a></div>
+    </div>
+    <div id="happilee-chatbot" class="fixed bottom-[50px] right-9 z-[999]">
+        <div class="flex w-14 h-14 p-3 items-center justify-center gap-2 shrink-0 rounded-[1.75rem] bg-[#1B982F] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.20)] hover:shadow-[0px_4px_16px_0px_rgba(0,0,0,0.40)] hover:rounded-[16px] transition-all duration-300 cursor-pointer">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="happilee chatbot" class="w-full h-full object-contain">
+        </div>
     </div>
 
-    <!-- ----------------------------------------  WhatsApp Chat Button end --------------------------------- -->
-     
+    <!-- ----------------------------------------- Happilee Chatbot End ------------------------------------------ -->
+
+    <!-- -------------------------------------------- Footer Copyright ------------------------------------------- -->
 
     <div class="border-t border-[#0B39661A]">
         <div class="container flex justify-between items-center text-14 leading-4 py-5 mdd:p-5 mdd:flex-col mdd:gap-2">
@@ -284,7 +302,7 @@
                 
             </div>
         </div>
-
     </div>
-
+    
+    <!-- ----------------------------------------- Footer Copyright End ------------------------------------------- -->
 </footer><!-- #colophon -->
