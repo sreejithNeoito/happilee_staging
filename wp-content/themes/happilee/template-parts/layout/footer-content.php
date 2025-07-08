@@ -58,7 +58,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
 			        ?>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://www.linkedin.com/company/happilee" target="_blank"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="<?= esc_url($linkedin_url); ?>" target="_blank"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_470_4063)">
                                 <path d="M11.56 9.78218C11.56 10.7624 10.937 11.5644 9.77998 11.5644C8.71199 11.5644 8 10.7624 8 9.87129C8 8.89109 8.71199 8 9.77998 8C10.848 8 11.56 8.80198 11.56 9.78218Z" fill="#0B3966" />
                                 <path d="M11.5598 12.4453H8.00977V23.9998H11.5598V12.4453Z" fill="#0B3966" />
@@ -72,7 +72,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                             </defs>
                         </svg>
                     </a>
-                    <a href="<?= $facebook_url; ?>" target="_blank">
+                    <a href="<?= esc_url($facebook_url); ?>" target="_blank">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_470_4069)">
                                 <path d="M19.4131 10.228H20.9911V7H18.6152C15.2465 7 13.6418 8.88508 13.6418 11.5709V14.1149H11V17.1844H13.6418V25H17.6046V17.1844H20.2465L21 14.1149H17.6135V12.013C17.6046 11.1622 18.1011 10.228 19.4131 10.228Z" fill="#0B3966" />
@@ -85,7 +85,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                             </defs>
                         </svg>
                     </a>
-                    <a href="<?= $xplatform_url; ?>" target="_blank">
+                    <a href="<?= esc_url($xplatform_url); ?>" target="_blank">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_470_4072)">
                                 <path d="M7.0416 8L13.6418 16.8249L7 24H8.49492L14.3099 17.718L19.0081 24H24.095L17.1233 14.6788L23.3055 8H21.8106L16.4555 13.7855L12.1285 8H7.0416ZM9.23994 9.10103H11.5768L21.8964 22.899H19.5595L9.23994 9.10103Z" fill="#0B3966" />
@@ -99,7 +99,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                         </svg>
 
                     </a>
-                    <a href="<?= $instagram_url; ?>" target="_blank">
+                    <a href="<?= esc_url($instagram_url); ?>" target="_blank">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1860_112)">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7 12.5161C7 9.46965 9.46965 7 12.5161 7H19.4839C22.5303 7 25 9.46965 25 12.5161V19.4839C25 22.5303 22.5303 25 19.4839 25H12.5161C9.46965 25 7 22.5303 7 19.4839V12.5161ZM12.5161 8.74194C10.4317 8.74194 8.74194 10.4317 8.74194 12.5161V19.4839C8.74194 21.5683 10.4317 23.2581 12.5161 23.2581H19.4839C21.5683 23.2581 23.2581 21.5683 23.2581 19.4839V12.5161C23.2581 10.4317 21.5683 8.74194 19.4839 8.74194H12.5161Z" fill="#0B3966" />
@@ -114,7 +114,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                             </defs>
                         </svg>
                     </a>
-                    <a href="<?= $youtube_url; ?>" target="_blank">
+                    <a href="<?= esc_url($youtube_url); ?>" target="_blank">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1463_99)">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.71213 23.1948C10.1998 23.5939 15.4107 23.6049 16 23.6049C16.5893 23.6049 21.8002 23.5934 23.2874 23.1943C23.8393 23.0459 24.3426 22.7552 24.7468 22.3511C25.151 21.947 25.4419 21.4437 25.5903 20.8918C25.9955 19.3785 26 16.4268 26 16.302C26 16.1772 25.9955 13.226 25.5903 11.7126C25.4419 11.1609 25.1511 10.6574 24.7471 10.2534C24.3431 9.84943 23.8401 9.55865 23.2884 9.41017C21.8002 9.01107 16.5893 9 16 9C15.4107 9 10.1998 9.01158 8.71263 9.41067C8.16085 9.55925 7.65776 9.85013 7.25369 10.2542C6.84963 10.6583 6.55875 11.1614 6.41017 11.7131C6.00453 13.2265 6 16.1782 6 16.303C6 16.4278 6.00403 19.3795 6.41017 20.8928C6.55832 21.4447 6.849 21.9479 7.25304 22.3519C7.65708 22.7559 8.16027 23.0466 8.71213 23.1948ZM14.0775 19.1631C14.1719 19.2575 14.2999 19.3105 14.4334 19.3105C14.5216 19.3104 14.6083 19.2873 14.685 19.2436L19.0227 16.7388C19.0992 16.6946 19.1627 16.6311 19.2069 16.5546C19.2511 16.4781 19.2743 16.3913 19.2743 16.3029C19.2743 16.2146 19.2511 16.1278 19.2069 16.0513C19.1627 15.9748 19.0992 15.9113 19.0227 15.8671L14.685 13.3623C14.6085 13.3178 14.5217 13.2943 14.4332 13.2942C14.3448 13.294 14.2578 13.3172 14.1812 13.3614C14.1046 13.4057 14.0411 13.4694 13.997 13.546C13.9529 13.6227 13.9298 13.7097 13.9301 13.7982V18.8072C13.9301 18.9407 13.9831 19.0687 14.0775 19.1631Z" fill="#0B3966" />
@@ -303,7 +303,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
 
     <div class="border-t border-[#0B39661A]">
         <div class="container flex justify-between items-center text-14 leading-4 py-5 mdd:p-5 mdd:flex-col mdd:gap-2">
-            <div class="text-black mdd:text-center"><?= $copyright_text; ?> <a href="https://happilee.io/" class="text-primary font-medium px-2">Happilee.io</a> All Rights Reserved</div>
+            <div class="text-black mdd:text-center"><?= esc_html($copyright_text); ?> <a href="https://happilee.io/" class="text-primary font-medium px-2">Happilee.io</a> All Rights Reserved</div>
             <div class="text-primary">
                 <a href="<?php echo esc_url(site_url('/terms-of-use/')); ?>">Terms & Conditions</a>
                 
