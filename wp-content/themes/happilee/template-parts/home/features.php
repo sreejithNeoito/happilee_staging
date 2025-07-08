@@ -1,3 +1,4 @@
+<?php $free_trial  = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_link', '' ); ?>
 <section>
     <div class="container features-header pt-5 mt-5 ">
         <h2 class="text-center text-24 leading-[26px] text-primary mb-6 mdd:px-5">Key Features of <br><span class="font-bold">Happilee Automation</span></h2>
@@ -111,7 +112,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/chatbot-builder/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
@@ -150,7 +151,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/team-inbox/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
@@ -240,7 +241,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/broadcast-bulk-messages/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
@@ -279,7 +280,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/whatsapp-commerce/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
@@ -373,7 +374,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/scheduler/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
@@ -412,7 +413,7 @@
                 <a href="<?php echo esc_url(site_url('/feature/meta-leads-crm/')); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 smd:text-14 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Learn More
                 </a>
-                <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
                     Start FREE Trial
                 </a>
             </div>
