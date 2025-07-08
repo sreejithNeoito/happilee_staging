@@ -17,6 +17,22 @@ function happilee_register_theme_options() {
         'position'     => 59,
     ) );
 
+     // Book Demo Link
+    $cmb->add_field( array(
+        'name' => 'Book Demo Link',
+        'desc' => 'URL for the Book Demo button',
+        'id'   => $prefix . 'demo_link',
+        'type' => 'text_url',
+    ) );
+
+    // Start Free Trial Link
+    $cmb->add_field( array(
+        'name' => 'Start Free Trial Link',
+        'desc' => 'URL for the Start FREE Trial button',
+        'id'   => $prefix . 'free_trial_link',
+        'type' => 'text_url',
+    ) );
+
     // Copyright
     $cmb->add_field( array(
         'name' => 'Copyright Text',
