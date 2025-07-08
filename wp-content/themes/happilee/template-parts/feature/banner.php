@@ -3,8 +3,7 @@ $tagline   = get_post_meta(get_the_ID(), 'feature_banner_tagline', true);
 $title     = get_post_meta(get_the_ID(), 'feature_banner_title', true);
 $paragraph = get_post_meta(get_the_ID(), 'feature_banner_paragraph', true);
 $image = get_post_meta(get_the_ID(), 'feature_banner_image', true); // Assume this returns the URL
-
-
+$free_trial  = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_link', '' );
 ?>
 
 
@@ -14,7 +13,7 @@ $image = get_post_meta(get_the_ID(), 'feature_banner_image', true); // Assume th
         <div class="rounded-[10px] w-max text-20 leading-[22px] text-primary"><?php echo $tagline  ?></div>
         <h1 class="font-semibold text-40 leading-[44px] text-primary"><?php echo $title  ?></h1>
         <p class="text-16 leading-[24px]"><?php echo $paragraph; ?></p>
-        <a href="https://app.happilee.io/signup/freetrial/" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+        <a href="<?= esc_url($free_trial); ?>" class="bg-primary border block w-max border-primary  text-white smd:text-14 text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
             Start FREE Trial
         </a>
     </div>
