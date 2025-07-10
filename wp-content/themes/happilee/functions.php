@@ -474,6 +474,8 @@ require get_template_directory() . '/inc/cpt.php';
 
 require_once get_template_directory() . '/inc/cmb2/init.php';
 
+require_once get_template_directory() . '/inc/home_page_cf.php';
+
 require get_template_directory() . '/inc/sliderclients_cf.php';
 
 require get_template_directory() . '/inc/features_cf.php';
