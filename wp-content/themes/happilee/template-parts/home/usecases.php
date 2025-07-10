@@ -10,36 +10,45 @@
 
         $landing_query = new WP_Query($args);
 
-        if ($landing_query->have_posts()) {
+        if ($landing_query->have_posts()) :
 
-            while ($landing_query->have_posts()) {
+            while ($landing_query->have_posts()) :
 
                 $landing_query->the_post();
+                $post_id  = get_the_ID();
+
+                $featured_image_url = '';
+                $alt_text           = '';
                 
                 if (has_post_thumbnail()) :
-                        $post_id            = get_the_ID();
-                        $thumbnail_id       = get_post_thumbnail_id($post_id );
-                        $featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
-                        $alt_text           = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
-                        $usecase_title      = get_post_meta($post_id, 'hero_section_title', true);
-                        $usecase_subtitle   = get_post_meta($post_id, 'hero_section_subtitle', true); 
+
+                    $thumbnail_id       = get_post_thumbnail_id($post_id );
+                    $featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
+                    $alt_text           = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+
+                endif;
+                    $usecase_title      = get_post_meta($post_id, 'hero_section_title', true);
+                    $usecase_subtitle   = get_post_meta($post_id, 'hero_section_subtitle', true); 
                         
-                        if(! is_single()) { 
-                            $usecase_title = str_replace('WhatsApp','<span class="text-secondary">WhatsApp</span>',$usecase_title);
-                        }?>
+                if(! is_single()) { 
+                    $usecase_title = str_replace('WhatsApp','<span class="text-secondary">WhatsApp</span>',$usecase_title);
+                } ?>
                 
-                    <div class="flex flex-1 gap-4 flex-col">
-                        <img src="<?= $featured_image_url ?>" alt="<?= $alt_text; ?>" class="relative bg-transparent z-10 w-full">
-                        <h2 class="text-20 leading-5 text-primary font-semibold"><?= $usecase_title; ?></h2>
-                        <p class="text-16 leading-6 text-black"><?= $usecase_subtitle; ?></p>
-                        <a href="<?php echo esc_url(get_permalink()); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
-                            Learn More
-                        </a>
-                    </div>
+                <div class="flex flex-1 gap-4 flex-col">
+                    <img src="<?= $featured_image_url ?>" alt="<?= $alt_text; ?>" class="relative bg-transparent z-10 w-full">
+                    <h2 class="text-20 leading-5 text-primary font-semibold"><?= $usecase_title; ?></h2>
+                    <p class="text-16 leading-6 text-black"><?= $usecase_subtitle; ?></p>
+                    <a href="<?php echo esc_url(get_permalink()); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+                        Learn More
+                    </a>
+                </div>
  
-        <?php endif;
-        }
-         } ?>
+            <?php 
+            endwhile;
+
+            wp_reset_postdata();
+
+        endif; ?>
 
         <!-- 
         =====================================================================================
@@ -71,7 +80,6 @@
                 Learn More
             </a>
         </div> -->
-
 
     </div>
 </section>
