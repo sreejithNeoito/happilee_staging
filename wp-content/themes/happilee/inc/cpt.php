@@ -61,7 +61,7 @@ function custom_post_types()
             'not_found_in_trash' => __('No Landing Pages found in Trash'),
         ),
         'public'      => true,
-        'supports'    => array('title'),
+        'supports'    => array('title','thumbnail'),
         'menu_icon' => 'dashicons-desktop',
         'has_archive' => false,
         'rewrite'     => array('slug' => 'landing', 'with_front' => true),
