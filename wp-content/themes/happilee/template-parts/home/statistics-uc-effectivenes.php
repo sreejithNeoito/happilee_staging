@@ -1,3 +1,27 @@
+<?php
+
+/**
+ * Display dynamic Use Case statistics section.
+ *
+ * Retrieves data from the 'use_case_statics' custom field and dynamically
+ * generates a styled statistics section using Tailwind CSS classes.
+ *
+ * @since 10/07/2025
+ */
+
+
+$home_page_id = get_option('page_on_front');
+
+$use_case_data = get_post_meta($home_page_id, 'use_case_statics', true);
+
+if (empty($use_case_data)) {
+    return;
+}
+
+// Background color classes to be applied in sequence
+$bg_color = ["bg-accent-2", "bg-accent-4", "bg-accent-3"];
+?>
+
 <section class="container mdd:px-0 px-0">
     <div class="gap-6">
         <h2 class="text-primary text-24 leading-[26px] text-center">Statistics of <br>
@@ -5,7 +29,37 @@
         </h2>
     </div>
     <div class="p-5 mdd:p-5 flex justify-between gap-6 flex-wrap">
-        <div class="flex flex-1 w-1/4 mdd:w-2/4 rounded-[10px] gap-2 flex-col p-4 text-primary  bg-accent-2">
+
+        <?php
+        $i = 0;
+        foreach ($use_case_data as $case_data) {
+            
+            if ($i == 2 || $i == 3) {
+                $bg_style = $bg_color[2];
+            } elseif ($i == 1) {
+                $bg_style = $bg_color[1];
+            } else {
+                $bg_style = $bg_color[0];
+            }
+        ?>
+    
+            
+        <div class="flex flex-1 w-1/4 mdd:w-2/4 rounded-[10px] gap-2 flex-col p-4 text-primary <?= $bg_style; ?>">
+            <?= $case_data['case_id_3']; ?>
+            <h5 class="text-32 leading-[34px] font-semibold"><?= $case_data['case_id_2']; ?></h5>
+            <div class="text-16 leading-5"><?= nl2br($case_data['case_id_1']); ?></div>
+        </div>
+
+    <?php $i++; } ?>
+
+       <!-- 
+        =====================================================================================
+        The following section contains static content previously created by Musthafa M.
+        It has been commented out in favor of dynamic content generation above.
+        =====================================================================================
+        -->
+     
+        <!-- <div class="flex flex-1 w-1/4 mdd:w-2/4 rounded-[10px] gap-2 flex-col p-4 text-primary  bg-accent-2">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 11C1 8.62222 1 6.88049 1 5.00027C1 2.79114 2.78673 1 4.99586 1C8.22603 1 12.8952 1 17.0016 1C19.2107 1 21 2.78931 21 4.99845C21 9.10482 21 13.774 21 17.0041C21 19.2133 19.2091 21 17 21H11M5.44444 11H11M11 11V16.5556M11 11L1 21" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -39,6 +93,6 @@
             <h5 class="text-32 leading-[34px] font-semibold">95%</h5>
             <div class="text-16 leading-5">Satisfied <br>
                 Customer Rating</div>
-        </div>
+        </div> -->
     </div>
 </section>
