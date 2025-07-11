@@ -56,7 +56,7 @@
             After that, add the class in the 'form-handler.php' plugin file.
             ================================================================================================= -->
 
-        <!-- <form class="justify-start items-center gap-4 flex banner-form smd:flex-col smd:gap-0">
+        <!-- <form class="justify-start items-center gap-4 flex banner-form smd:flex-col smd:gap-[10px]">
             <input type="tel" id="phone" name="phone" required placeholder="123-456-7890" class="shadow appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <button class="px-[15px] py-[10px] bg-[#1e9933] rounded-[10px] justify-center items-center gap-2.5 flex smd:w-full" type="submit">
 
@@ -80,13 +80,13 @@
          
         <!-- WhatsApp field plugin shortcode  -->
 
-        <?php echo do_shortcode('[whatsapp_phone_form]'); ?>
+        <?php  echo do_shortcode('[whatsapp_phone_form]'); ?>
 
         <p class="text-12 leading-4 text-black mdd:text-10 mdd:leading-[11px]"> * By confirming your mobile number, Happilee will connect you in WhatsApp</p>
 
 
     </div>
-    <div class="hidden  w-full lgmd:block py-0 px-4 md:p-8 md:pt-0 relative order-1 lgmd:order-1 mt-5">
+    <div class="hidden w-full lgmd:block p-0 md:p-8 md:pt-0 relative order-1 lgmd:order-1 mt-5">
         <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-mob.webp" alt="WhatsApp Business API" class="relative bg-transparent z-10 m-0">
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-0 md:pt-0 relative lgmd:w-[320px] lgmd:h-[280px] order-1 md:order-2 lgmd:hidden mr-8 mb-8">

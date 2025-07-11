@@ -8,7 +8,7 @@
  * @package happilee
  */
 
-$copyright_text = cmb2_get_option( 'happilee-theme-options', 'happilee_copyright', 'Default copyright text' );
+$copyright_text = cmb2_get_option( 'happilee-theme-options', 'happilee_copyright', '' );
 $linkedin_url   = cmb2_get_option( 'happilee-theme-options', 'happilee_linkedin_url', '' );
 $facebook_url   = cmb2_get_option( 'happilee-theme-options', 'happilee_facebook_url', '' );
 $xplatform_url  = cmb2_get_option( 'happilee-theme-options', 'happilee_xplatform_url', '' );
