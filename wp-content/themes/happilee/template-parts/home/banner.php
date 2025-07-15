@@ -47,16 +47,18 @@
 			
         </div>
         <p class="text-20 leading-7 text-black mdd:text-18 mdd:leading-6">Engage and sell more with <b>WhatsApp Business API</b> Platform that automate <b>Marketing, Sales</b> and <b>Support</b>.</p>
-
-        <!-- ================================= Development Note ===========================================
+        
+        <?php
+        /*
+           ================================= Development Note ===========================================
 
             WhatsApp field area on the old homepage, created by Musthafa.
             Note: If you want to remove the 'Happilee Connect' plugin, please uncomment this form.
             When creating a Tailwind custom style for this form, uncomment the form and run the Tailwind CLI.
             After that, add the class in the 'form-handler.php' plugin file.
-            ================================================================================================= -->
+            =================================================================================================
 
-        <!-- <form class="justify-start items-center gap-4 flex banner-form smd:flex-col smd:gap-[10px]">
+        <form class="justify-start items-center gap-4 flex banner-form smd:flex-col smd:gap-[10px]">
             <input type="tel" id="phone" name="phone" required placeholder="123-456-7890" class="shadow appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <button class="px-[15px] py-[10px] bg-[#1e9933] rounded-[10px] justify-center items-center gap-2.5 flex smd:w-full" type="submit">
 
@@ -74,10 +76,12 @@
 
                 <div class="text-white text-16 leading-[20px] font-semibold">Connect!</div>
             </button>
-        </form> -->
+        </form>
 
-        <!-- ============== WhatsApp field area on the old homepage, created by Musthafa ============= -->
-         
+        ============== WhatsApp field area on the old homepage, created by Musthafa =============
+        */ 
+        ?>
+
         <!-- WhatsApp field plugin shortcode  -->
 
         <?php  echo do_shortcode('[whatsapp_phone_form]'); ?>

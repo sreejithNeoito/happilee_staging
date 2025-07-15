@@ -1,9 +1,10 @@
 <?php
 
+$prefix = 'home_page_';
+
 function cmb2_home_metaboxes()
 {
-    $prefix = 'home_page_';
-
+    
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
         'title'         => __( 'Statistics of Use Case Effectiveness', 'happilee' ),
@@ -58,6 +59,144 @@ function cmb2_home_metaboxes()
 
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');
+
+function cmb2_home_features_metaboxes()
+{
+
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'features',
+        'title'         => __( 'Key Features', 'happilee' ),
+        'object_types'  => array( 'page' ),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'show_on_cb'    => 'show_on_front_page',
+    ) );
+
+    $cmb->add_field( array(
+        'name' => __('Section Title', 'happilee'),
+        'id'   => 'happilee_automation_title',
+        'type' => 'wysiwyg',
+        'options'   => array(
+            'textarea_rows' => 4,
+            'media_buttons' => false,
+            'teeny' => true,
+        ),
+    ) );
+
+    $features_home_groupId = $cmb->add_field( array(
+		'id'             => 'home_features_id',
+		'type'           => 'group',
+		'repeatable'     =>  true,
+        'repeatable_max' => 4,
+		'options'        => array(
+			'group_title'   => 'Feature box {#}',
+			'add_button'    => 'Add Feature',
+			'remove_button' => 'Remove Feature',
+			'closed'        => true,
+			'sortable'      => true,
+		),
+	) );
+
+    $cmb->add_group_field( $features_home_groupId, array(
+        'name' => __('Features Title', 'happilee'),
+        'id'   => 'feature_title',
+        'type' => 'text',
+        'desc' => __('Enter the feature title.', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_home_groupId, array(
+        'name' => __('SVG Icon', 'happilee'),
+        'desc' => __('Paste your SVG markup (e.g. <svg>...</svg>)', 'happilee'),
+        'id'   => 'happilee_automation_svg',
+        'type' => 'textarea_code',
+        'attributes' => array(
+            'rows' => 5,
+        ),
+        'options' => array(
+            'disable_codemirror' => false,
+        ),
+    ) );
+
+    $cmb->add_group_field( $features_home_groupId, array(
+        'name' => __('Features Icon URL', 'happilee'),
+        'desc' => __('Paste the SVG icon URL or anchor link (e.g., #feat-one).', 'happilee'),
+        'id'   => 'happilee_automation_svg_url',
+        'type' => 'text_url',
+    ) );
+}
+add_action('cmb2_admin_init', 'cmb2_home_features_metaboxes');
+
+// function cmb2_home_integration_metaboxes()
+// {
+
+//     $cmb = new_cmb2_box( array(
+//         'id'            => $prefix . 'delight',
+//         'title'         => __( 'Start Delighting Section', 'happilee' ),
+//         'object_types'  => array( 'page' ),
+//         'context'       => 'normal',
+//         'priority'      => 'high',
+//         'show_names'    => true,
+//         'show_on_cb'    => 'show_on_front_page',
+//     ) );
+
+//     $cmb->add_field( array(
+//         'name' => __('Section Title', 'happilee'),
+//         'id'   => 'happilee_delight_title',
+//         'type' => 'wysiwyg',
+//         'options'   => array(
+//             'textarea_rows' => 4,
+//             'media_buttons' => false,
+//             'teeny' => true,
+//         ),
+//     ) );
+
+//     $cmb->add_field( array(
+//         'name' => __('Section Content', 'happilee'),
+//         'id'   => 'happilee_delight_content',
+//         'type' => 'textarea',
+//         'attributes' => array(
+//             'rows' => 5,
+//         ),
+//     ) );
+
+// }
+
+function cmb2_home_delight_metaboxes()
+{
+
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'delight',
+        'title'         => __( 'Start Delighting Section', 'happilee' ),
+        'object_types'  => array( 'page' ),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'show_on_cb'    => 'show_on_front_page',
+    ) );
+
+    $cmb->add_field( array(
+        'name' => __('Section Title', 'happilee'),
+        'id'   => 'happilee_delight_title',
+        'type' => 'wysiwyg',
+        'options'   => array(
+            'textarea_rows' => 4,
+            'media_buttons' => false,
+            'teeny' => true,
+        ),
+    ) );
+
+    $cmb->add_field( array(
+        'name' => __('Section Content', 'happilee'),
+        'id'   => 'happilee_delight_content',
+        'type' => 'textarea',
+        'attributes' => array(
+            'rows' => 5,
+        ),
+    ) );
+
+}
+add_action('cmb2_admin_init', 'cmb2_home_delight_metaboxes');
 
 function show_on_front_page( $cmb ) {
 
