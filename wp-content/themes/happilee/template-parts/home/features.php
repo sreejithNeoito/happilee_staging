@@ -1,54 +1,23 @@
-<?php $free_trial  = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_link', '' ); ?>
+<?php 
+    $home_page_id           = get_option('page_on_front');
+    $free_trial             = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_link', '' ); 
+    $home_featuer_title     = get_post_meta($home_page_id, 'happilee_automation_title', true);
+    $home_features_data     = get_post_meta($home_page_id, 'home_features_id', true);
+ ?>
 <section>
     <div class="container features-header pt-5 mt-5 ">
-        <h2 class="text-center text-24 leading-[26px] text-primary mb-6 mdd:px-5">Key Features of <br><span class="font-bold">Happilee Automation</span></h2>
+        <h2 class="text-center text-24 leading-[26px] text-primary mb-6 mdd:px-5"><?= nl2br($home_featuer_title); ?></h2>
 
     </div>
 
     <div class="flex gap-4 items-center features-happilee pb-5 mb-5">
-        <a href="#feat-one" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
-            <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M29.5 16.0807V22.5404M16.5 3.80745V9.62112M3.5 16.0807V22.5404M23 29H10C8.2125 29 6.75 27.5466 6.75 25.7702V12.8509C6.75 11.0745 8.2125 9.62112 10 9.62112H23C24.7875 9.62112 26.25 11.0745 26.25 12.8509V25.7702C26.25 27.5466 24.7875 29 23 29ZM13.25 16.8882C13.25 17.3341 12.8862 17.6957 12.4375 17.6957C11.9888 17.6957 11.625 17.3341 11.625 16.8882C11.625 16.4423 11.9888 16.0807 12.4375 16.0807C12.8862 16.0807 13.25 16.4423 13.25 16.8882ZM21.2125 16.8882C21.2125 17.3341 20.8487 17.6957 20.4 17.6957C19.9513 17.6957 19.5875 17.3341 19.5875 16.8882C19.5875 16.4423 19.9513 16.0807 20.4 16.0807C20.8487 16.0807 21.2125 16.4423 21.2125 16.8882ZM17.8 4.29193C17.8 5.00544 17.218 5.58385 16.5 5.58385C15.782 5.58385 15.2 5.00544 15.2 4.29193C15.2 3.57841 15.782 3 16.5 3C17.218 3 17.8 3.57841 17.8 4.29193Z" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
-                <path d="M20.5 22C18.2909 24.2091 14.7091 24.2091 12.5 22" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
-            </svg>
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">Chatbot Builder</div>
-        </a>
-        <a href="#feat-two" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
-            <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.18752 15.1563H13.9375M8.18752 10.8438H16.8125M10.1947 1.72199C5.60745 2.57847 2.02369 6.28989 1.16358 10.8578C0.733531 13.57 1.16358 16.2822 2.31039 18.4234L1.02023 23.9905C1.02023 24.276 1.16358 24.4187 1.45028 24.4187L7.04095 23.134C9.19121 24.276 11.9149 24.847 14.6385 24.276C19.2257 23.4195 22.9529 19.8508 23.813 15.2829C25.2465 7.14637 18.2223 0.151777 10.1947 1.72199Z" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
-            </svg>
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">Team Inbox</div>
-        </a>
-        <a href="#feat-three" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
 
-            <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8.36097 8.2L12.9 25M25.4218 17.39L21.466 2.65509C21.0359 1.05304 19.0669 0.46282 17.8236 1.56322L15.3304 3.76982C12.5558 6.22536 9.24668 8.00245 5.66482 8.96035C2.66659 9.76218 0.889703 12.847 1.69307 15.8394C2.49644 18.8319 5.58064 20.6167 8.57887 19.8148C12.1607 18.8569 15.9168 18.7444 19.5498 19.4865L22.8144 20.1532C24.4424 20.4857 25.8518 18.992 25.4218 17.39Z" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">Broadcaster</div>
+    <?php foreach($home_features_data as $home_features): ?>
+        <a href="<?= $home_features['happilee_automation_svg_url']?>" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
+            <?= $home_features['happilee_automation_svg']; ?>
+            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap"><?= $home_features['feature_title']; ?></div>
         </a>
-        <a href="#feat-four" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
-            <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.3 7V3.4C18.3 2.07452 17.2255 1 15.9 1H11.1C9.77452 1 8.7 2.07452 8.7 3.4V7M25.5 13L13.9706 15.3059C13.66 15.368 13.34 15.368 13.0294 15.3059L1.5 13M1.5 9.4C1.5 8.07452 2.57452 7 3.9 7H23.1C24.4255 7 25.5 8.07452 25.5 9.4V22.6C25.5 23.9255 24.4255 25 23.1 25H3.9C2.57452 25 1.5 23.9255 1.5 22.6V9.4Z" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-
-
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">WhatsApp Commerce</div>
-        </a>
-        <a href="#feat-five" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.5 3.2H3.2C1.98497 3.2 1 4.18497 1 5.4V8.7M6.5 3.2H15.3M6.5 3.2V1M6.5 3.2V5.4M1 8.7H20.8V5.4C20.8 4.18497 19.8151 3.2 18.6 3.2H15.3M1 8.7V20.8C1 22.0151 1.98497 23 3.2 23H8.7M15.3 3.2V1M15.3 3.2V5.4M17.5 15.575V17.5L18.875 18.875M23 17.5C23 20.5375 20.5375 23 17.5 23C14.4625 23 12 20.5375 12 17.5C12 14.4625 14.4625 12 17.5 12C20.5375 12 23 14.4625 23 17.5Z" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-
-
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">Scheduler</div>
-        </a>
-        <a href="#feat-six" class="flex flex-col items-center justify-center rounded-xl p-4 gap-2 bg-white hover:bg-bg-footer cursor-pointer scroll-to">
-            <svg width="29" height="20" viewBox="0 0 29 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.5 6.13567C12.8345 3.2249 10.8143 1 8.48573 1C6.15713 1 1.5 4.3457 1.5 12.1747C1.5 17.9461 2.93413 19 4.46087 19C8.39327 19 12.5724 10.184 14.5 6.13567ZM14.5 6.13567C16.1655 3.2249 18.1857 1 20.5143 1C22.8429 1 27.5 4.3457 27.5 12.1747C27.5 17.9461 26.0659 19 24.5391 19C20.6067 19 16.4276 10.184 14.5 6.13567Z" stroke="#0B3966" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="text-16 font-medium font-second leadin-[20] whitespace-nowrap">Meta Leads</div>
-        </a>
+    <?php endforeach; ?>
     </div>
 
 

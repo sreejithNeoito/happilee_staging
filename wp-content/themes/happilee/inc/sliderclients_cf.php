@@ -26,8 +26,6 @@ function render_gallery_metabox($post)
         return;
     }
 
-
-
     // Add nonce for security
     wp_nonce_field('gallery_nonce_action', 'gallery_nonce_name');
 
@@ -35,8 +33,31 @@ function render_gallery_metabox($post)
     $gallery_images = get_post_meta($post->ID, '_homepage_slider_gallery', true);
     $gallery_images = !empty($gallery_images) ? explode(',', $gallery_images) : [];
 
+    $gallery_description = get_post_meta($post->ID, '_gallery_description', true);
+
 ?>
+    <div class="gallery-metabox">
+        <div class="gallery-title-main">
+            <label for="gallery_title">Gallery Title:</label>
+        </div>
+        <div class="gallery-content-main">
+            <?php
+                wp_editor(
+                    $gallery_description,   
+                    'gallery_description',
+                    array(
+                        'textarea_name' => 'gallery_description',
+                        'media_buttons' => true,
+                        'textarea_rows' => 5,
+                        'teeny' => false,
+                        'quicktags' => true
+                    )
+                );
+                ?>
+        </div>
+    </div><br>
     <div id="gallery-container">
+        <label for="gallery_title">Gallery Images:</label>
         <ul class="gallery-list">
             <?php foreach ($gallery_images as $image_id): ?>
                 <li class="gallery-item">
@@ -97,7 +118,23 @@ function render_gallery_metabox($post)
             margin: 5px;
             position: relative;
         }
-
+        .gallery-metabox {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1.8em 0;
+        }
+        .gallery-title-main {
+            width: 20%;
+            font-weight: 600;
+        }
+        .gallery-content-main {
+            width: 80%;
+        }
+        .gallery-metabox .gallery_title {
+            width: 25em;
+             
+        }
         .remove-image {
             position: absolute;
             top: 0;
@@ -121,6 +158,11 @@ function save_gallery_metabox_data($post_id)
         update_post_meta($post_id, '_homepage_slider_gallery', implode(',', $gallery_images));
     } else {
         delete_post_meta($post_id, '_homepage_slider_gallery');
+    }
+    
+    // Save gallery discription
+    if (isset($_POST['gallery_description'])) {
+        update_post_meta($post_id, '_gallery_description', wp_kses_post($_POST['gallery_description']));
     }
 }
 add_action('save_post', 'save_gallery_metabox_data');

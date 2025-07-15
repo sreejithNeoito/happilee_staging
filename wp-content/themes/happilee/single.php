@@ -94,10 +94,10 @@ get_header();
 						if (!empty($tags) && !is_wp_error($tags)) : ?>
 							<div class="flex flex-wrap gap-2 group">
 								<?php foreach ($tags as $tag) : ?>
-									<div class="p-2 rounded-[10px] w-max font-semibold text-14 leading-4 bg-bg-footer text-primary">
+									<a href="<?php echo esc_url(get_term_link($tag)); ?>" class="p-2 rounded-[10px] w-max font-semibold text-14 leading-4 bg-bg-footer text-primary">
 										<?php echo esc_html($tag->name);
 										?>
-									</div>
+									</a>
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>
