@@ -2,4 +2,4 @@ wp-content/ai1wm-backups
 wp-content/plugins/*
 wp-content/uploads/*
 .DS_Store
-# wp-config.php
+wp-config.php
