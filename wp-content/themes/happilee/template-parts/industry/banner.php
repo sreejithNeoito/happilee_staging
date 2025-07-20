@@ -3,6 +3,8 @@ $tagline     = get_post_meta(get_the_ID(), 'industry_banner_tagline', true);
 $title       = get_post_meta(get_the_ID(), 'industry_banner_title', true);
 $paragraph   = get_post_meta(get_the_ID(), 'industry_banner_paragraph', true);
 $image       = get_post_meta(get_the_ID(), 'industry_banner_image', true); // Assume this returns the URL
+$image_id    = attachment_url_to_postid($image);
+$alt_text    = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 $free_trial  = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_link', '' );
 
 ?>
@@ -19,6 +21,6 @@ $free_trial  = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_l
         </a>
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
-        <img src="<?php echo $image ?>" alt="<?php echo $tagline ?>">
+        <img src="<?php echo $image ?>" alt="<?php echo $alt_text; ?>">
     </div>
 </section>

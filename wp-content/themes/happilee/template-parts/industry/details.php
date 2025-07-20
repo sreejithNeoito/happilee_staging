@@ -2,7 +2,9 @@
 $details = get_post_meta(get_the_ID(), 'industry_details_group', true);
 if (!empty($details)) :
     foreach ($details as $index => $detail) :
-        $flexDirection = $index % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'; ?>
+        $flexDirection = $index % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse';
+		$image_id      = $detail['detail_image_id'];
+        $image_alt     = get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>
         <section class="container flex lgmd:flex-col py-10 my-10 gap-6 mdd:flex-col mdd:py-5 mdd:my-5 items-start justify-between <?php echo esc_attr($flexDirection); ?>">
             <div class="flex w-1/2 lg:flex-1 p-5 gap-6 flex-col lgmd:w-full lgmd:order-2">
                 <h2 class="font-semibold text-32 leading-[35px] text-primary"><?php echo esc_html($detail['detail_title']); ?></h2>
@@ -19,7 +21,7 @@ if (!empty($details)) :
                 </ul>
             </div>
             <div class="w-1/2 md:w-[480px] mdd:order-1 lgmd:w-full relative feature-container">
-                <img class="rounded-3xl" src="<?php echo esc_url($detail['detail_image']); ?>" alt="<?php echo esc_attr($detail['detail_title']); ?>">
+                <img class="rounded-3xl" src="<?php echo esc_url($detail['detail_image']); ?>" alt="<?php echo esc_attr(!empty($image_alt) ? $image_alt : $detail['detail_title']); ?>">
             </div>
         </section>
 <?php endforeach;

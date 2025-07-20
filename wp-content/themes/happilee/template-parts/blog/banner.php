@@ -24,8 +24,9 @@ if ($featured_query->have_posts()) : ?>
         <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full mdd:mt-5 mdd:px-0 order-1 md:order-2">
             <?php
             if (has_post_thumbnail()) :
-                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
-                <img class=" rounded-[16px]" src="<?php echo $featured_image_url ?>" alt="<?php the_title(); ?>">
+                $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 
+				$alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>
+                <img class=" rounded-[16px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
             <?php endif; ?>
         </div>
     </section>

@@ -10,10 +10,11 @@ if (! empty($highlights)) {
                     ? $highlight['highlight_icon']
                     : "https://placehold.co/64";
                 $highlight_title = $highlight['highlight_title'];
-                $highlight_content = $highlight['highlight_content']; ?>
+                $highlight_content = $highlight['highlight_content'];
+				$highlight_alt = get_post_meta($highlight['highlight_icon_id'], '_wp_attachment_image_alt', true); ?>
 
                 <div class="flex flex-col gap-4">
-                    <img src="<?php echo $icon; ?>" class="h-16 w-16" alt="">
+                    <img src="<?php echo $icon; ?>" class="h-16 w-16" alt="<?= esc_attr($highlight_alt); ?>">
                     <h3 class="text-20 font-semibold leading-6 text-primary"><?php echo $highlight_title; ?></h3>
                     <p class="text-16 leading-6"><?php echo $highlight_content; ?></p>
                 </div>

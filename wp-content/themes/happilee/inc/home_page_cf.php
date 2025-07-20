@@ -127,40 +127,41 @@ function cmb2_home_features_metaboxes()
 }
 add_action('cmb2_admin_init', 'cmb2_home_features_metaboxes');
 
-// function cmb2_home_integration_metaboxes()
-// {
+function cmb2_home_integration_metaboxes()
+{
 
-//     $cmb = new_cmb2_box( array(
-//         'id'            => $prefix . 'delight',
-//         'title'         => __( 'Start Delighting Section', 'happilee' ),
-//         'object_types'  => array( 'page' ),
-//         'context'       => 'normal',
-//         'priority'      => 'high',
-//         'show_names'    => true,
-//         'show_on_cb'    => 'show_on_front_page',
-//     ) );
+    $cmb = new_cmb2_box( array(
+        'id'            => $prefix . 'Integration',
+        'title'         => __( 'Integration Section', 'happilee' ),
+        'object_types'  => array( 'page' ),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true,
+        'show_on_cb'    => 'show_on_front_page',
+    ) );
 
-//     $cmb->add_field( array(
-//         'name' => __('Section Title', 'happilee'),
-//         'id'   => 'happilee_delight_title',
-//         'type' => 'wysiwyg',
-//         'options'   => array(
-//             'textarea_rows' => 4,
-//             'media_buttons' => false,
-//             'teeny' => true,
-//         ),
-//     ) );
+    $cmb->add_field( array(
+        'name' => __('Section Title', 'happilee'),
+        'id'   => 'happilee_integration_title',
+        'type' => 'wysiwyg',
+        'options'   => array(
+            'textarea_rows' => 4,
+            'media_buttons' => false,
+            'teeny' => true,
+        ),
+    ) );
 
-//     $cmb->add_field( array(
-//         'name' => __('Section Content', 'happilee'),
-//         'id'   => 'happilee_delight_content',
-//         'type' => 'textarea',
-//         'attributes' => array(
-//             'rows' => 5,
-//         ),
-//     ) );
+    $cmb->add_field( array(
+        'name' => __('Section Content', 'happilee'),
+        'id'   => 'happilee_integration_content',
+        'type' => 'textarea',
+        'attributes' => array(
+            'rows' => 5,
+        ),
+    ) );
 
-// }
+}
+add_action('cmb2_admin_init', 'cmb2_home_integration_metaboxes');
 
 function cmb2_home_delight_metaboxes()
 {

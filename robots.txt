@@ -1,0 +1,9 @@
+# START YOAST BLOCK
+# ---------------------------
+User-agent: *
+Disallow: /wp-content/plugins/
+Allow: /wp-content/uploads/
+
+Sitemap: https://happilee.io/sitemap_index.xml
+# ---------------------------
+# END YOAST BLOCK
