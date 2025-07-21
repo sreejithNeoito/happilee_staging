@@ -20,7 +20,7 @@
 
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'test_happilee_db' );
+define( 'DB_NAME', 'stage_happilee_db' );
 
 /** Database username */
 define( 'DB_USER', 'testhappileeuser' );
@@ -84,10 +84,10 @@ define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-define('WP_HOME', 'https://happilee.io');
-define('WP_SITEURL', 'https://happilee.io');
+define('WP_HOME', 'https://test.happilee.io');
+define('WP_SITEURL', 'https://test.happilee.io');
 define('WP_CONTENT_DIR', dirname(__FILE__) . '/wp-content');
-define('WP_CONTENT_URL', 'https://happilee.io/wp-content');
+define('WP_CONTENT_URL', 'https://test.happilee.io/wp-content');
 
 define('FORCE_SSL_ADMIN', true);
 define('FS_METHOD', 'direct');

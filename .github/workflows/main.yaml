@@ -17,11 +17,11 @@ jobs:
             echo "⏰ Deployment started at: $(date)"
 
             echo "📂 Navigating to project directory..."
-            cd /var/www/website/happilee/happilee_website
+            cd /var/www/website/happilee/happilee_staging
             echo "✅ Current directory: $(pwd)"
 
             echo "🔧 Setting up git authentication..."
-            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/happilee-app/happilee_website.git && sudo -u www-data git stash save
+            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/sreejithNeoito/happilee_staging.git && sudo -u www-data git stash save
             echo "✅ Git authentication configured"
 
             echo "📥 Pulling latest changes from main branch..."
@@ -33,7 +33,7 @@ jobs:
             fi
 
             echo "🧹 Cleaning up git authentication..."
-            sudo -u www-data git remote set-url origin https://github.com/happilee-app/happilee_website.git
+            sudo -u www-data git remote set-url origin https://github.com/sreejithNeoito/happilee_staging.git
             echo "✅ Git authentication cleaned up"
 
             echo "🔒 Setting file permissions..."
