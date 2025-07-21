@@ -55,4 +55,4 @@ jobs:
             fi
 
             echo "🎉 Deployment completed successfully!"
-            echo "⏰ Deployment finished at: $(date)"
+            echo "⏰ Deployments finished at: $(date)"
