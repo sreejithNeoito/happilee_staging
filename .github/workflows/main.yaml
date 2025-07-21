@@ -17,7 +17,7 @@ jobs:
             echo "⏰ Deployment started at: $(date)"
 
             echo "📂 Navigating to project directory..."
-            cd /var/www/website/happilee/happilee_staging
+            cd /var/www/happilee_staging
             echo "✅ Current directory: $(pwd)"
 
             echo "🔧 Setting up git authentication..."
