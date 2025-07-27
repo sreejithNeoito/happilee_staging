@@ -17,6 +17,7 @@
                 $position = get_post_meta(get_the_ID(), '_testimonial_position', true);
                 $company = get_the_title(); // Title is the company name
                 $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); // Get the thumbnail URL
+				$alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
         ?>
                 <div class="flex flex-col gap-6 p-5">
                     <!-- Icon and Divider -->
@@ -45,7 +46,7 @@
 
                         <!-- Thumbnail Image and Play Icon -->
                         <a href="<?php echo esc_url($youtube_link); ?>" class="relative w-max" target="_blank">
-                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="Testimonial Thumbnail" class="w-[112px] rounded-[10px] testimonial-thumpnail">
+                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>" class="w-[112px] rounded-[10px] testimonial-thumpnail" loading="lazy">
                             <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-[37%] left-[41%]">
                                 <path d="M19.2846 10.4034C19.9513 10.7883 19.9513 11.7506 19.2846 12.1355L1.5 22.4034C0.833333 22.7883 -3.3649e-08 22.3072 0 21.5374L8.97653e-07 1.00149C9.31302e-07 0.231691 0.833334 -0.249434 1.5 0.135467L19.2846 10.4034Z" fill="#FF421D" />
                             </svg>

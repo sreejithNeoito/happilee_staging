@@ -37,7 +37,7 @@ if (function_exists('get_posts')) :
         endif; ?>
 
             <div class="flex flex-1 gap-4 flex-col">
-                <img src="<?= $featured_image_url ?>" alt="<?= $alt_text; ?>" class="relative bg-transparent z-10 w-full">
+                <img src="<?= $featured_image_url ?>" alt="<?= $alt_text; ?>" loading="lazy" class="relative bg-transparent z-10 w-full">
                 <h2 class="text-20 leading-5 text-primary font-semibold"><?= $usecase_title; ?></h2>
                 <p class="text-16 leading-6 text-black"><?= $usecase_subtitle; ?></p>
                 <a href="<?php echo esc_url(get_permalink()); ?>" class="bg-transparent border block w-max border-primary  text-primary text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">

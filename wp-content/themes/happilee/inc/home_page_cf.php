@@ -1,9 +1,8 @@
 <?php
 
-$prefix = 'home_page_';
-
 function cmb2_home_metaboxes()
 {
+    $prefix = 'home_page_';
     
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'metabox',
@@ -62,7 +61,7 @@ add_action('cmb2_admin_init', 'cmb2_home_metaboxes');
 
 function cmb2_home_features_metaboxes()
 {
-
+    $prefix = 'home_page_';
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'features',
         'title'         => __( 'Key Features', 'happilee' ),
@@ -129,7 +128,7 @@ add_action('cmb2_admin_init', 'cmb2_home_features_metaboxes');
 
 function cmb2_home_integration_metaboxes()
 {
-
+    $prefix = 'home_page_';
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'Integration',
         'title'         => __( 'Integration Section', 'happilee' ),
@@ -165,7 +164,7 @@ add_action('cmb2_admin_init', 'cmb2_home_integration_metaboxes');
 
 function cmb2_home_delight_metaboxes()
 {
-
+    $prefix = 'home_page_';
     $cmb = new_cmb2_box( array(
         'id'            => $prefix . 'delight',
         'title'         => __( 'Start Delighting Section', 'happilee' ),

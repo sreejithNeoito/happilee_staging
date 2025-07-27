@@ -22,8 +22,10 @@ $end = min($paged * $posts_per_page, $total_posts);
             <?php while ($query->have_posts()) : $query->the_post(); ?>
                 <div class="flex flex-1 gap-4 flex-col">
                     <?php if (has_post_thumbnail()) :
-                        $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
-                        <img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php the_title(); ?>">
+                        $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+						$post_thumbnail_id  = get_post_thumbnail_id(get_the_ID()); 
+						$alt_text = get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true); ?>
+                        <img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
                     <?php endif; ?>
 
                     <div class="flex gap-4 flex-wrap">

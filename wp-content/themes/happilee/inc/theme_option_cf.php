@@ -71,5 +71,17 @@ function happilee_register_theme_options() {
         'id'   => $prefix . 'youtube_url',
         'type' => 'text_url',
     ) );
-      
+
+    $cmb->add_field( array(
+        'name' => 'Footer Meta Partner Logo',
+        'id'   => $prefix . 'meta_partner_logo',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Add Meta Partner Logo', 'cmb2'),
+        ),
+        'preview_size' => array(140, 54),
+    ) );   
 }

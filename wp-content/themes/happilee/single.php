@@ -79,13 +79,13 @@ get_header();
 				<div class="content-left w-8/12 lgmd:w-full p-5 pr-8 lgmd:pr-5">
 					<h1 class="title leading-[44px] text-40 smd:text-28 smd:leading-[30.46px] font-semibold text-primary mb-6"><?php echo get_the_title(); ?></h1>
 					<?php if (has_post_thumbnail()) :
-						$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
-						<img class="relative bg-transparent z-10 w-full rounded-[10px] mb-6" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php the_title(); ?>">
+						$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 
+						$post_thumbnail_id  = get_post_thumbnail_id(get_the_ID()); 
+						$alt_text = get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true); ?>
+						<img class="relative bg-transparent z-10 w-full rounded-[10px] mb-6" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
 					<?php endif; ?>
 					<div class="post-content">
-						<?php
-						the_content();
-						?>
+						<?php the_content(); ?>
 					</div>
 					<div class="flex gap-4 flex-wrap mb-6">
 						<?php
@@ -194,10 +194,11 @@ get_header();
 							?>
 								<div class="flex flex-1 gap-4 flex-col">
 									<?php if (has_post_thumbnail()) :
-										$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
-										<img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php the_title(); ?>">
+										$featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+										$post_thumbnail_id  = get_post_thumbnail_id(get_the_ID()); 
+										$alt_text = get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true); ?>
+										<img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
 									<?php endif; ?>
-
 									<div class="flex gap-4 flex-wrap">
 										<?php
 										$categories = get_the_category();

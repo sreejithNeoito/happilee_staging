@@ -14,7 +14,7 @@ if ($gallery_images): ?>
                 foreach ($gallery_images as $image_id):
                     $image_url = wp_get_attachment_image_url($image_id, 'full'); 
 					$alt_text  = get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>
-                    <img src="<?php echo esc_url($image_url) ?>" alt="<?= esc_attr($alt_text); ?>" class="bg-transparent w-full">
+                    <img src="<?php echo esc_url($image_url) ?>" alt="<?= esc_attr($alt_text); ?>" class="bg-transparent w-full" loading="lazy">
                 <?php
                 endforeach;
                 ?>
