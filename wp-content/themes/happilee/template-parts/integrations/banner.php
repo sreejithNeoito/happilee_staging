@@ -9,6 +9,6 @@
         </a>
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integrations/banner.webp" alt="integrations">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integrations/banner.webp" alt="integrations" loading="eager">
     </div>
 </section>

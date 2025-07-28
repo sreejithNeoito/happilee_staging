@@ -26,7 +26,7 @@ if ($featured_query->have_posts()) : ?>
             if (has_post_thumbnail()) :
                 $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 
 				$alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>
-                <img class=" rounded-[16px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
+                <img class=" rounded-[16px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>" loading="lazy">
             <?php endif; ?>
         </div>
     </section>

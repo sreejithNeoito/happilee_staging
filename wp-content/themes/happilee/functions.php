@@ -271,6 +271,8 @@ function happilee_scripts()
 	wp_enqueue_script('owl-carousel-js', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery'), null, true);
 	// }
 
+
+	wp_enqueue_script('lottie-js','https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js',array(),'5.12.2',true);
 	wp_enqueue_style('happilee-style', get_stylesheet_uri(), array(), HAPPILEE_VERSION);
 	wp_enqueue_script('happilee-script', get_template_directory_uri() . '/js/script.min.js', array('jquery'), HAPPILEE_VERSION, true);
 
@@ -306,6 +308,21 @@ function happilee_enqueue_block_editor_script()
 	}
 }
 add_action('enqueue_block_assets', 'happilee_enqueue_block_editor_script');
+
+/*
+ * Add defer attribute to specific scripts
+ */
+
+function happilee_add_defer_attribute($tag, $handle) {
+	$scripts_to_defer = ['intl-tel-input-js', 'owl-carousel-js', 'happilee-script','forminator-form','forminator-front-scripts','forminator-jquery-validate'];
+
+	if (in_array($handle, $scripts_to_defer)) {
+		return str_replace('<script ', '<script defer ', $tag);
+	}
+
+	return $tag;
+}
+add_filter('script_loader_tag', 'happilee_add_defer_attribute', 10, 2);
 
 /**
  * Add the Tailwind Typography classes to TinyMCE.

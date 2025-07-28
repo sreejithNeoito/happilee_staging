@@ -53,9 +53,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 	<div id="preloader">
-		<div class="loader">
+		<div id="lottie-animation"></div>
+		<!-- <div class="loader">
 			<img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/preloader.gif">
-		</div>
+		</div> -->
 	</div>
 
 	<?php wp_body_open(); ?>

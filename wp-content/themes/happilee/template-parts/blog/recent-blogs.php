@@ -16,7 +16,7 @@ $posts = new WP_Query(array(
                 if (has_post_thumbnail()) :
                     $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 					$alt_text = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>
-                    <img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>">
+                    <img class="relative bg-transparent z-10 w-full rounded-[10px]" src="<?php echo esc_url($featured_image_url); ?>" alt="<?php echo esc_attr($alt_text ?: get_the_title()); ?>" loading="lazy">
                 <?php endif; ?>
                 <div class="flex gap-4 flex-wrap">
                     <?php

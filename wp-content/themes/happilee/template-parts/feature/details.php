@@ -21,7 +21,7 @@ if (!empty($details)) :
                 </ul>
             </div>
             <div class="w-1/2 md:w-[480px] mdd:order-1 lgmd:w-full relative feature-container">
-                <img src="<?php echo esc_url($detail['detail_image']); ?>" alt="<?php echo !empty($img_alt) ? esc_attr($img_alt) : esc_attr($detail['detail_title']); ?>">
+                <img src="<?php echo esc_url($detail['detail_image']); ?>" alt="<?php echo !empty($img_alt) ? esc_attr($img_alt) : esc_attr($detail['detail_title']); ?>" loading="lazy">
             </div>
         </section>
 <?php endforeach;

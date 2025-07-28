@@ -91,12 +91,12 @@
 
     </div>
     <div class="hidden w-full lgmd:block p-0 md:p-8 md:pt-0 relative order-1 lgmd:order-1 mt-5">
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-mob.webp" alt="WhatsApp Business API" class="relative bg-transparent z-10 m-0">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-mob.webp" alt="WhatsApp Business API" loading="eager" class="relative bg-transparent z-10 m-0">
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-0 md:pt-0 relative lgmd:w-[320px] lgmd:h-[280px] order-1 md:order-2 lgmd:hidden mr-8 mb-8">
         <div class="w-[400px] h-[260px] bg-[#CEE1F5] rounded-3xl absolute bottom-0 left-5 person-banner absolute-hor-center">
         </div>
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-lady.webp" alt="WhatsApp Business API" class="relative bg-transparent z-10 w-[360px] h-[400px] mx-auto bottom-0">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-lady.webp" alt="WhatsApp Business API" loading="eager" class="relative bg-transparent z-10 w-[360px] h-[400px] mx-auto bottom-0">
         <svg xmlns="http://www.w3.org/2000/svg" width="368" height="148" viewBox="0 0 368 148" fill="none" class="absolute bottom-5 z-40 absolute-hor-center">
             <path d="M350.961 2.9177C357.286 -3.35244 368 1.15119 368 10.0805V137.94C368 143.496 363.518 148 357.99 148H8.02369C1.1819 148 -2.50918 139.935 1.94331 134.714L45.4213 83.7343C52.1684 75.9965 63.723 75.1021 71.5404 81.7124L106.01 110.86C113.645 117.316 124.886 116.634 131.714 109.3L205.237 30.3271C212.624 22.3929 225.016 22.3398 232.468 30.2106L263.366 62.8451C270.611 70.4981 282.584 70.6918 290.065 63.277L350.961 2.9177Z" fill="url(#paint0_linear_963_224)" />
             <defs>

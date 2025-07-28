@@ -20,6 +20,6 @@ $free_trial = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_li
         </a>
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
-        <img src="<?php echo $image ?>" alt="<?php echo $alt_text; ?>">
+        <img src="<?php echo $image ?>" alt="<?php echo $alt_text; ?>" loading="eager">
     </div>
 </section>

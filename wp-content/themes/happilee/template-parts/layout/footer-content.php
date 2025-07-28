@@ -224,7 +224,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                 <?php $partner_logo     = cmb2_get_option( 'happilee-theme-options', 'happilee_meta_partner_logo' );
                       $partner_logo_id  = attachment_url_to_postid( $partner_logo );
                       $partner_logo_alt = get_post_meta( $partner_logo_id, '_wp_attachment_image_alt', true ); ?>
-                <img src ="<?= esc_url($partner_logo); ?>" class="w-full h-full object-contain" alt="<?= esc_attr($partner_logo_alt); ?>">
+                <img src ="<?= esc_url($partner_logo); ?>" loading="lazy" class="w-full h-full object-contain" alt="<?= esc_attr($partner_logo_alt); ?>">
             </div>
         </div>
     </div>
@@ -239,8 +239,8 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mascot.svg" alt="happilee mascot" class="w-[120px] bottom-[164px] right-[52px] drop-shadow-[4px_0_8px_rgba(0,0,0,0.15)] absolute">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/happilee-logo.svg" alt="happilee chatbot logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mascot.svg" alt="happilee mascot" loading="eager" class="w-[120px] bottom-[164px] right-[52px] drop-shadow-[4px_0_8px_rgba(0,0,0,0.15)] absolute">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/happilee-logo.svg" alt="happilee chatbot logo" loading="eager">
         I checked the website and have a few questions to ask.
         <a href="https://api.whatsapp.com/send/?phone=918848803679&text=I checked the website and have a few questions to ask.&type=phone_number&app_absent=0" target="_blank" class="font-semibold text-[14px] font-second w-full" >
             <div class="flex justify-center items-center gap-2 bg-[#1e9933] text-white px-4 py-2 rounded-[8px]">
@@ -261,7 +261,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
     </div>
     <div id="happilee-chatbot" class="fixed bottom-[50px] right-9 z-[999]">
         <div class="flex w-14 h-14 p-3 items-center justify-center gap-2 shrink-0 rounded-[1.75rem] bg-[#1B982F] shadow-[0px_4px_8px_0px_rgba(0,0,0,0.20)] hover:shadow-[0px_4px_16px_0px_rgba(0,0,0,0.40)] hover:rounded-[16px] transition-all duration-300 cursor-pointer">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="happilee chatbot" class="w-full h-full object-contain">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.svg" alt="happilee chatbot" loading="eager" class="w-full h-full object-contain">
         </div>
     </div>
 

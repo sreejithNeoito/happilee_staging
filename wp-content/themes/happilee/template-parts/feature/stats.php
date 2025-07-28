@@ -28,7 +28,7 @@ if (! empty($statistics)) {
 
             ?>
                 <div class="flex flex-1 w-1/3 mdd:w-2/4 rounded-[10px] gap-2 flex-col p-4 text-primary <?php echo $bg_class; ?>">
-                    <img width="26" height="26" src="<?php echo $icon; ?>" alt="<?php echo $stat_alt ?>">
+                    <img width="26" height="26" src="<?php echo $icon; ?>" alt="<?php echo $stat_alt ?>" loading="lazy">
                     <h5 class="text-32 leading-[34px] font-semibold"><?php echo $stat_title ?></h5>
                     <div class="text-16 leading-5"><?php echo $stat_content; ?></div>
                 </div>

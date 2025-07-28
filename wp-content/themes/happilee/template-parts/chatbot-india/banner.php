@@ -11,6 +11,6 @@
         </a>
     </div>
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
-        <img src="https://happilee.io/wp-content/uploads/2025/06/whatsapp-chatbot-provider.webp" width="440" height="360" alt="Placehold">
+        <img src="https://happilee.io/wp-content/uploads/2025/06/whatsapp-chatbot-provider.webp" width="440" height="360" alt="Placehold" loading="eager">
     </div>
 </section>
