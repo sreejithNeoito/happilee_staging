@@ -325,6 +325,50 @@ function happilee_add_defer_attribute($tag, $handle) {
 add_filter('script_loader_tag', 'happilee_add_defer_attribute', 10, 2);
 
 /**
+ * Remove Post Type Slugs from URLs - Function Method
+ * This code removes the post type slug from URLs for specified post types
+ */
+
+// Remove post type slugs from URLs for specified post types
+$post_types = ['landing']; // Add more post types here
+
+// Remove slug from generated URLs
+add_filter('post_type_link', function($post_link, $post) use ($post_types) {
+    if (!in_array($post->post_type, $post_types) || $post->post_status !== 'publish') {
+        return $post_link;
+    }
+    $obj = get_post_type_object($post->post_type);
+    $slug = $obj->rewrite['slug'] ?? $obj->name ?? $post->post_type;
+    return $slug ? str_replace("/{$slug}/", '/', $post_link) : $post_link;
+}, 10, 2);
+
+
+// Handle queries for clean URLs
+add_action('pre_get_posts', function($query) use ($post_types) {
+    if ($query->is_main_query() 
+        && count($query->query) === 2 
+        && isset($query->query['page']) 
+        && !empty($query->query['name'])) {
+        $query->set('post_type', array_merge(['post', 'page'], $post_types));
+    }
+});
+
+// Redirect old URLs with slugs to new clean URLs
+add_action('template_redirect', function() use ($post_types) {
+    if (!is_singular($post_types) || is_admin() || is_preview()) return;
+    
+    global $wp;
+    $obj = get_post_type_object(get_post_type());
+    $slug = $obj->rewrite['slug'] ?? $obj->name ?? get_post_type();
+    $current_url = trailingslashit(home_url($wp->request ?? ''));
+    
+    if ($slug && str_contains($current_url, "/{$slug}")) {
+        wp_safe_redirect(str_replace("/{$slug}", '', $current_url), 301);
+        exit;
+    }
+});
+
+/**
  * Add the Tailwind Typography classes to TinyMCE.
  *
  * @param array $settings TinyMCE settings.
