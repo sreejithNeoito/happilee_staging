@@ -314,7 +314,7 @@ add_action('enqueue_block_assets', 'happilee_enqueue_block_editor_script');
  */
 
 function happilee_add_defer_attribute($tag, $handle) {
-	$scripts_to_defer = ['intl-tel-input-js', 'owl-carousel-js', 'happilee-script','forminator-form','forminator-front-scripts','forminator-jquery-validate'];
+	$scripts_to_defer = ['intl-tel-input-js', 'owl-carousel-js', 'happilee-script','forminator-form','forminator-front-scripts','forminator-jquery-validate','lottie-js'];
 
 	if (in_array($handle, $scripts_to_defer)) {
 		return str_replace('<script ', '<script defer ', $tag);
