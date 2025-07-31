@@ -314,7 +314,8 @@ add_action('enqueue_block_assets', 'happilee_enqueue_block_editor_script');
  */
 
 function happilee_add_defer_attribute($tag, $handle) {
-	$scripts_to_defer = ['intl-tel-input-js', 'owl-carousel-js', 'happilee-script','forminator-form','forminator-front-scripts','forminator-jquery-validate','lottie-js'];
+	$scripts_to_defer = ['intl-tel-input-js', 'owl-carousel-js', 'happilee-script','forminator-form','forminator-front-scripts',
+	'forminator-jquery-validate','lottie-js'];
 
 	if (in_array($handle, $scripts_to_defer)) {
 		return str_replace('<script ', '<script defer ', $tag);
@@ -324,8 +325,9 @@ function happilee_add_defer_attribute($tag, $handle) {
 }
 add_filter('script_loader_tag', 'happilee_add_defer_attribute', 10, 2);
 
+
 /**
- * Remove Post Type Slugs from URLs - Function Method
+ * Remove Post Type Slugs from URLs
  * This code removes the post type slug from URLs for specified post types
  */
 
@@ -367,6 +369,7 @@ add_action('template_redirect', function() use ($post_types) {
         exit;
     }
 });
+
 
 /**
  * Add the Tailwind Typography classes to TinyMCE.

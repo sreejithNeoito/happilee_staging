@@ -234,7 +234,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
     <div id="chat-popup" class="hidden flex w-80 px-6 pt-6 pb-3 flex-col items-start gap-4 rounded-2xl border-2 border-[#1B982F] bg-[#FEFEFE] shadow-[0px_4px_12px_0px_rgba(0,0,0,0.25)] fixed bottom-[50px] right-9 z-[1000]">
 
          <!-- Close Button -->
-        <button id="close-popup" class="absolute top-3 right-4 w-8 h-8 flex items-center justify-center" aria-label="Close">
+        <button id="close-popup" class="absolute top-3 right-4 xl:right-6 2xl: right-6 w-8 h-8 flex items-center justify-center" aria-label="Close">
             <svg class="w-[23px] h-[23px] text-black" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
