@@ -90,8 +90,8 @@ function cmb2_home_features_metaboxes()
         'repeatable_max' => 4,
 		'options'        => array(
 			'group_title'   => 'Feature box {#}',
-			'add_button'    => 'Add Feature',
-			'remove_button' => 'Remove Feature',
+			'add_button'    => 'Add Feature Box',
+			'remove_button' => 'Remove Feature Box',
 			'closed'        => true,
 			'sortable'      => true,
 		),
@@ -123,6 +123,151 @@ function cmb2_home_features_metaboxes()
         'id'   => 'happilee_automation_svg_url',
         'type' => 'text_url',
     ) );
+
+    $features_list = $cmb->add_field( array(
+		'id'             => 'features_list_id',
+		'type'           => 'group',
+		'repeatable'     =>  true,
+        'repeatable_max' => 4,
+		'options'        => array(
+			'group_title'   => 'Feature Details {#}',
+			'add_button'    => 'Add Feature',
+			'remove_button' => 'Remove Feature',
+			'closed'        => true,
+			'sortable'      => true,
+		),
+	) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Section Title', 'happilee'),
+        'id'   => 'feature_section_title',
+        'type' => 'text',
+        'desc' => __("Enter the feature section title (e.g., 'Chatbot Builder', 'Team Inbox', etc.).", 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Main Title', 'happilee'),
+        'id'   => 'feature_main_title',
+        'type' => 'textarea_small',
+        'desc' => __('Enter the main title for the section.', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature content', 'happilee'),
+        'id'   => 'feature_content',
+        'type' =>  'wysiwyg',
+        'desc' => __('Enter the main title for the section.', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Rating 1', 'happilee'),
+        'id'   => 'feature_rating_1',
+        'type' =>  'text',
+        'desc' => __('Enter rating percentage (Example: 80%)', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Title 1', 'happilee'),
+        'id'   => 'feature_content_1',
+        'type' =>  'text',
+        'desc' => __('Enter rating content', 'happilee'),
+    ) );
+ 
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Rating 2', 'happilee'),
+        'id'   => 'feature_rating_2',
+        'type' =>  'text',
+        'desc' => __('Enter rating percentage (Example: 80%)', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Title 2', 'happilee'),
+        'id'   => 'feature_content_2',
+        'type' =>  'text',
+        'desc' => __('Enter rating content', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Rating 3', 'happilee'),
+        'id'   => 'feature_rating_3',
+        'type' =>  'text',
+        'desc' => __('Enter rating percentage (Example: 80%)', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Title 3', 'happilee'),
+        'id'   => 'feature_content_3',
+        'type' =>  'text',
+        'desc' => __('Enter rating content', 'happilee'),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Main Image', 'happilee'),
+        'id'   => 'feature_main_image',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Add Feature Main Image', 'happilee'),
+        ),
+    ) );
+    
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Animation Image 1', 'happilee'),
+        'id'   => 'animation_image_1',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Animation Image 1', 'happilee'),
+        ),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Animation Image 2', 'happilee'),
+        'id'   => 'animation_image_2',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Animation Image 2', 'happilee'),
+        ),
+    ) );
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Animation Image 3', 'happilee'),
+        'id'   => 'animation_image_3',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Animation Image 3', 'happilee'),
+        ),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Image For Mobile', 'happilee'),
+        'id'   => 'feature_mobile_image',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Image For Mobile', 'happilee'),
+        ),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
+        'name' => __('Learn More Button Link', 'happilee'),
+        'id'   => 'learn_more_link',
+        'type' =>  'text',
+        'desc' => __('Add the button link here', 'happilee'),
+    ) );
+
+
 }
 add_action('cmb2_admin_init', 'cmb2_home_features_metaboxes');
 
