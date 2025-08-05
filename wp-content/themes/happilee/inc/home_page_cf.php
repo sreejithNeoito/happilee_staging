@@ -18,7 +18,6 @@ function cmb2_home_metaboxes()
 		'id'             => 'use_case_statics',
 		'type'           => 'group',
 		'repeatable'     =>  true,
-        'repeatable_max' => 4,
 		'options'        => array(
 			'group_title'   => 'Statistic {#}',
 			'add_button'    => 'Add Another Field',
@@ -87,7 +86,6 @@ function cmb2_home_features_metaboxes()
 		'id'             => 'home_features_id',
 		'type'           => 'group',
 		'repeatable'     =>  true,
-        'repeatable_max' => 4,
 		'options'        => array(
 			'group_title'   => 'Feature box {#}',
 			'add_button'    => 'Add Feature Box',
@@ -128,7 +126,6 @@ function cmb2_home_features_metaboxes()
 		'id'             => 'features_list_id',
 		'type'           => 'group',
 		'repeatable'     =>  true,
-        'repeatable_max' => 4,
 		'options'        => array(
 			'group_title'   => 'Feature Details {#}',
 			'add_button'    => 'Add Feature',
@@ -249,6 +246,18 @@ function cmb2_home_features_metaboxes()
     ) );
 
     $cmb->add_group_field( $features_list, array(
+        'name' => __('Feature Animation Image 4', 'happilee'),
+        'id'   => 'animation_image_4',
+        'type' => 'file',
+        'options' => array(
+            'url' => false,
+        ),
+        'text'    => array(
+            'add_upload_file_text' => __('Animation Image 4', 'happilee'),
+        ),
+    ) );
+
+    $cmb->add_group_field( $features_list, array(
         'name' => __('Feature Image For Mobile', 'happilee'),
         'id'   => 'feature_mobile_image',
         'type' => 'file',
@@ -292,18 +301,27 @@ function cmb2_home_integration_metaboxes()
             'textarea_rows' => 4,
             'media_buttons' => false,
             'teeny' => true,
+            'wpautop' => true,
         ),
     ) );
 
     $cmb->add_field( array(
         'name' => __('Section Content', 'happilee'),
         'id'   => 'happilee_integration_content',
-        'type' => 'textarea',
-        'attributes' => array(
-            'rows' => 5,
+        'type' => 'wysiwyg',
+        'options'   => array(
+            'textarea_rows' => 4,
+            'media_buttons' => false,
+            'teeny' => true,
+            'wpautop' => true,
         ),
     ) );
 
+    $cmb->add_field(array(
+        'name' => __('Integration Link', 'happilee'),
+        'id'   => 'integration_link',
+        'type' => 'text',
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_integration_metaboxes');
 

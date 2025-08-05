@@ -1,4 +1,20 @@
 <section class="container flex p-0 py-10 gap-6 justify-start items-start mdd:flex-col relative">
+    <?php
+        $home_page_id        = get_option('page_on_front');
+        $integration_title   = get_post_meta($home_page_id, 'happilee_integration_title', true);
+        $integration_content = get_post_meta($home_page_id, 'happilee_integration_content', true);
+        $integration_link    = get_post_meta($home_page_id, 'integration_link', true);
+
+         // Remove auto <p> tags from wpautop
+        $formatted_title   = wpautop($integration_title);
+
+        if (preg_match('/^<p>(.*?)<\/p>$/s', trim($formatted_title), $matches)) {
+            $clean_title = $matches[1];
+        } else {
+            $clean_title = $formatted_title;
+        }
+        
+    ?>
     <div class="relative w:480px px-0 mdd:w-full">
         <div class="container-logos-integration mdd:hidden">
             <img class="logo kylas-logo" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integration/kylas-logo.25f273e3d4d6733b0eb8.webp" alt="Kylas Logo" loading="lazy"/>
@@ -18,12 +34,9 @@
     </div>
 
     <div class=" mdd:w-full p-5 mdd:px-10 gap-5 flex flex-1 flex-col">
-        <h2 class="text-primary text-24 leading-[26px]">Integration<br>
-            <b>With Any Platform </b>
-        </h2>
-        <p class="text-16 leading-6">Seamlessly integrate WhatsApp Business with your favorite <b>E-commerce Platforms, CRMs, Online Stores</b> and more using Happilee.
-        </p>
-        <a href="<?php echo esc_url(site_url('/integrations/')); ?>" class=" bg-transparent border block w-max border-primary  text-primary text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
+        <h2 class="text-primary text-24 leading-[26px]"><?= $clean_title; ?></h2>
+        <p class="text-16 leading-6"><?= $integration_content; ?></p>
+        <a href="<?php echo esc_url($integration_link); ?>" class=" bg-transparent border block w-max border-primary  text-primary text-16 leading-5 font-semibold font-bold py-[10px] px-5 rounded-[20px]">
             Explore
         </a>
     </div>
