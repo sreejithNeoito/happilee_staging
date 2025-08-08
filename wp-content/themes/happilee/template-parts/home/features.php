@@ -43,12 +43,12 @@ $bg_colors = ["bg-[#CCFFCC]", "bg-[#FFDDD6]", "bg-[#FFF5C2]", "bg-[#CCFFCC]", "b
         $animation_img4 = $feature['animation_image_4'];
 
         // Get alt text for images
-        $mobile_img_alt = get_post_meta(attachment_url_to_postid($mobile_img), '_wp_attachment_image_alt', true);
-        $main_img_alt   = get_post_meta(attachment_url_to_postid($main_img), '_wp_attachment_image_alt', true);
-        $animation_alt1 = get_post_meta(attachment_url_to_postid($animation_img1), '_wp_attachment_image_alt', true);
-        $animation_alt2 = get_post_meta(attachment_url_to_postid($animation_img2), '_wp_attachment_image_alt', true);
-        $animation_alt3 = get_post_meta(attachment_url_to_postid($animation_img3), '_wp_attachment_image_alt', true);
-        $animation_alt4 = get_post_meta(attachment_url_to_postid($animation_img4), '_wp_attachment_image_alt', true);
+        $mobile_img_alt = get_post_meta(attachment_url_to_postid($mobile_img), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];;
+        $main_img_alt   = get_post_meta(attachment_url_to_postid($main_img), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];
+        $animation_alt1 = get_post_meta(attachment_url_to_postid($animation_img1), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];
+        $animation_alt2 = get_post_meta(attachment_url_to_postid($animation_img2), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];
+        $animation_alt3 = get_post_meta(attachment_url_to_postid($animation_img3), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];
+        $animation_alt4 = get_post_meta(attachment_url_to_postid($animation_img4), '_wp_attachment_image_alt', true) ?: $feature['feature_main_title'];
 
         $clean_feature_content =  wpautop($feature['feature_content']);
 

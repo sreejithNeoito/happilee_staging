@@ -2,9 +2,11 @@
     <div class="flex w-1/2 lgmd:flex-1  p-8 gap-6 flex-col lgmd:w-full order-2 lgmd:order-2 mdd:p-4 mdd:gap-6">
         <div class="relative mdd:flex mdd:items-end mdd:w-full smd:max-w-[300px] smd:flex-col">
             <!-- smd:max-w-[300px] smd:flex-col -->
-            <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]"><span class="md:block">Boom your</span> <b>Business on
-                    <span class=" text-[#28B53E]">WhatsApp</span></b>
+
+            <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">
+                <span class="md:block">Boom your</span> <b>Business on <span class=" text-[#28B53E]">WhatsApp</span></b>
             </h1>
+
             <!-- <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">Boom your <b class="block">Business on <span class="text-[#28B53E]">WhatsApp</span></b>
             </h1> -->
             <!-- <svg class="smd:-mt-6 md:absolute md:left-[244px] md:bottom-12" width="114" height="58" viewBox="0 0 114 58" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,21 +28,20 @@
             </svg> -->
 			
 			<svg class="hidden md:block md:absolute md:left-[244px] md:bottom-12" width="114" height="58" viewBox="0 0 114 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path class="path-arrow" d="M113 4.00013C113 4.00013 46.4691 3.64648 44.728 39.386C42.9869 75.1256 99.015 49.07 73.4902 26.3623C54.4558 9.42868 13.6892 38.4568 0.999998 53.3222" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="3.8637" stroke-dasharray="1 4" />
-    <path d="M109.5 1L113 4L110 7.5" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="3.8637" stroke-linecap="round" stroke-linejoin="round" />
-    <style>
-        .path-arrow {
-            stroke-dasharray: 3, 5;
-            stroke-dashoffset: 500;
-        }
-
-        @keyframes draw {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-    </style>
-</svg>
+                <path class="path-arrow" d="M113 4.00013C113 4.00013 46.4691 3.64648 44.728 39.386C42.9869 75.1256 99.015 49.07 73.4902 26.3623C54.4558 9.42868 13.6892 38.4568 0.999998 53.3222" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="3.8637" stroke-dasharray="1 4" />
+                <path d="M109.5 1L113 4L110 7.5" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="3.8637" stroke-linecap="round" stroke-linejoin="round" />
+                <style>
+                    .path-arrow {
+                        stroke-dasharray: 3, 5;
+                        stroke-dashoffset: 500;
+                    }
+                    @keyframes draw {
+                        to {
+                            stroke-dashoffset: 0;
+                        }
+                    }
+                </style>
+            </svg>
 
 			
 			
@@ -96,7 +97,7 @@
     <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-0 md:pt-0 relative lgmd:w-[320px] lgmd:h-[280px] order-1 md:order-2 lgmd:hidden mr-8 mb-8">
         <div class="w-[400px] h-[260px] bg-[#CEE1F5] rounded-3xl absolute bottom-0 left-5 person-banner absolute-hor-center">
         </div>
-        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/hero-lady.webp" alt="WhatsApp Business API" loading="eager" class="relative bg-transparent z-10 w-[360px] h-[400px] mx-auto bottom-0">
+        <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/whatsapp-business-api-happilee-platform.webp" alt="WhatsApp Business API" loading="eager" class="relative bg-transparent z-10 w-[360px] h-[400px] mx-auto bottom-0">
         <svg xmlns="http://www.w3.org/2000/svg" width="368" height="148" viewBox="0 0 368 148" fill="none" class="absolute bottom-5 z-40 absolute-hor-center">
             <path d="M350.961 2.9177C357.286 -3.35244 368 1.15119 368 10.0805V137.94C368 143.496 363.518 148 357.99 148H8.02369C1.1819 148 -2.50918 139.935 1.94331 134.714L45.4213 83.7343C52.1684 75.9965 63.723 75.1021 71.5404 81.7124L106.01 110.86C113.645 117.316 124.886 116.634 131.714 109.3L205.237 30.3271C212.624 22.3929 225.016 22.3398 232.468 30.2106L263.366 62.8451C270.611 70.4981 282.584 70.6918 290.065 63.277L350.961 2.9177Z" fill="url(#paint0_linear_963_224)" />
             <defs>

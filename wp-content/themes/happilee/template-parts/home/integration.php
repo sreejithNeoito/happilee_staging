@@ -29,7 +29,7 @@
             <img class="logo slack-logo" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integration/slack.webp" alt="Slack Logo" loading="lazy"/>
             <img class="logo googlesheet-logo" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integration/googlesheet.webp" alt="Google Sheets Logo" loading="lazy"/>
         </div>
-        <img class="hidden w-full mdd:block px-5" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integration/integration.webp" alt="Integrations" loading="lazy"/>
+        <img class="hidden w-full mdd:block px-5" src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/integration/whatsapp-api-integrations-with-crm-and-business-tools.webp" alt="Integrations" loading="lazy"/>
 
     </div>
 
