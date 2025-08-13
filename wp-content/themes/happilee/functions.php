@@ -562,5 +562,5 @@ require get_template_directory() . '/inc/post_featured.php';
 
 require get_template_directory() . '/inc/search_blog.php';
 
-/*free whatsapp plink generator */
+/*free whatsapp link generator */
 require get_template_directory() . '/inc/whatsapp-link-generator.php';
