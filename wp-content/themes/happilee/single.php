@@ -71,8 +71,6 @@ get_header();
 					</div>
 				</div>
 
-
-
 			</div>
 
 			<div class="container flex justify-between lgmd:flex-col">
