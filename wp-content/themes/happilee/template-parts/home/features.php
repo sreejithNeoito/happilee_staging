@@ -12,7 +12,7 @@ $section_ids = ["feat-one", "feat-two", "feat-three", "feat-four", "feat-five", 
 $bg_colors = ["bg-[#CCFFCC]", "bg-[#FFDDD6]", "bg-[#FFF5C2]", "bg-[#CCFFCC]", "bg-[#FFDDD6]", "bg-[#CEE1F5]"];
 ?>
 
-<section>
+<section class="features-section">
     <!-- Features Header -->
     <div class="container features-header pt-5 mt-5">
         <h2 class="text-center text-24 leading-[26px] text-primary mb-6 mdd:px-5">

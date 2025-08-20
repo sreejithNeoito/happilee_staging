@@ -1,4 +1,4 @@
-<section class="container flex p-0 py-10 gap-6 justify-start items-start mdd:flex-col relative">
+<section class="container flex p-0 py-10 gap-6 justify-start items-start mdd:flex-col relative integration-section">
     <?php
         $home_page_id        = get_option('page_on_front');
         $integration_title   = get_post_meta($home_page_id, 'happilee_integration_title', true);
