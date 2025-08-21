@@ -55,7 +55,7 @@ $trending_query = new WP_Query(array(
                         </div>
                     <?php endif; ?>
                 </div>
-                <h2 class="text-20 leading-5 text-primary font-semibold">
+                <h2 class="text-20 leading-[22px] text-primary font-semibold">
                     <a href="<?php the_permalink(); ?>">
                         <?php the_title(); ?>
                     </a>
