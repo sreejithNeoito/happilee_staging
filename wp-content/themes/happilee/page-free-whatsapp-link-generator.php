@@ -19,7 +19,7 @@ get_header();
     <?php
     get_template_part('template-parts/whatsapp-link-generator/banner');
     get_template_part('template-parts/whatsapp-link-generator/link-generator');
-    get_template_part('template-parts/whatsapp-link-generator/documentation');
+    get_template_part('template-parts/whatsapp-link-generator/page-content');
     get_template_part('template-parts/whatsapp-link-generator/faq');
     get_template_part('template-parts/home/delight');
     ?>
