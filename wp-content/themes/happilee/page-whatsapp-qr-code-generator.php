@@ -17,9 +17,9 @@ get_header();
 <main id="main">
  <?php 
  get_template_part('template-parts/whatsapp-qr-code-generator/banner');
- get_template_part('template-parts/whatsapp-link-generator/link-generator');
+ get_template_part('template-parts/whatsapp-qr-code-generator/qr-code-generator');
  get_template_part('template-parts/whatsapp-qr-code-generator/page-content');
- get_template_part('template-parts/whatsapp-link-generator/faq');
+ get_template_part('template-parts/whatsapp-qr-code-generator/faq');
  get_template_part('template-parts/home/delight');
  ?>
  
