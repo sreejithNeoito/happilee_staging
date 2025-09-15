@@ -1,3 +1,24 @@
+<?php
+    $section_title1         =   get_post_meta(get_the_ID(), 'section_title1', true);
+    $section_title2         =   get_post_meta(get_the_ID(), 'section_title2', true);
+    $section_title3         =   get_post_meta(get_the_ID(), 'section_title3', true);
+    $section_description1   =   get_post_meta(get_the_ID(), 'section_description1', true);
+    $section_description2   =   get_post_meta(get_the_ID(), 'section_description2', true);
+    $section_description3   =   get_post_meta(get_the_ID(), 'section_description3', true);
+    $wlp_image1             =   get_post_meta(get_the_ID(), 'wlp_image1', true);
+    $api_image1             =   get_post_meta(get_the_ID(), 'api_partner_image1', true);
+    $wlp_image2             =   get_post_meta(get_the_ID(), 'wlp_image2', true);
+    $api_image2             =   get_post_meta(get_the_ID(), 'api_partner_image2', true);
+    $wlp_image3             =   get_post_meta(get_the_ID(), 'wlp_image3', true);
+    $api_image3             =   get_post_meta(get_the_ID(), 'api_partner_image3', true);
+   
+    $wlp_offering_points1   =   get_post_meta(get_the_ID(), 'partner_offering_points', true);
+    $api_offering_points1   =   get_post_meta(get_the_ID(), 'offering_points_api', true);
+    $wlp_offering_points2   =   get_post_meta(get_the_ID(), 'partner_offering_points2', true);
+    $api_offering_points2   =   get_post_meta(get_the_ID(), 'offering_points_api2', true);
+    $wlp_offering_points3   =   get_post_meta(get_the_ID(), 'partner_offering_points3', true);
+    $api_offering_points3   =   get_post_meta(get_the_ID(), 'offering_points_api3', true);
+?>
 <section class="container flex flex-col gap-6 py-10">
     <div class="text-center text-24 text-primary font-main font-normal" >
         <h3>Our Partnership Offerings</h3>
@@ -12,85 +33,63 @@
     <!-- Why Choose It Section -->  
     <div class="flex gap-4 p-4 mdd:flex-col">
         <div class="flex w-1/2 flex-col gap-6 p-4 mdd:w-full mdd:order-2">
-            <h2 class="text-32 text-primary font-semibold">Why Choose It?</h2>
-            <p class="text-20 font-main font-medium">Use WhatsApp to connect instantly and boost customer satisfaction.</p>
-
-
+            <h2 class="text-32 text-primary font-semibold"><?= $section_title1; ?></h2>
+            <p class="text-20 font-main font-medium"><?= $section_description1; ?></p>
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings" data-partner="white-label">
+            <?php foreach ($wlp_offering_points1 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Boost Your Brand:</b> Resell Interakt’s features under your own brand.</div>
+                    <div><?= $point['wlp_feature_point']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Feature-Rich:</b> Offer WhatsApp Commerce, automation, and analytics.</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Quick Setup:</b> Easy integration for your business.</div>
-                </li>
+            <?php endforeach; ?>
             </ul>
 
-
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings hidden" data-partner="api">
+            <?php foreach ($api_offering_points1 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Tailored Solutions:</b> Build custom solutions with WhatsApp APIs.</div>
+                    <div><?= $point['api_feature_point']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Scalable Flexibility:</b> Scale independently at your own pace.</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Exclusive Access:</b> Priority Meta Tech Provider onboarding.</div>
-                </li>
+            <?php endforeach; ?>
             </ul>
 
         </div>
-        <div class="w-1/2 mdd:w-full mdd:order-1">
-           <div class="w-full lg:min-h-[420px] h-[420px] mdd:h-[280px] bg-[#DBDBDB] rounded-lg"></div>
+        <div class="w-1/2 mdd:w-full offerings" data-partner="white-label">
+            <img src="<?php echo $wlp_image1; ?>" alt="" loading="lazy">
+        </div>
+        <div class="w-1/2 mdd:w-full offerings hidden" data-partner="api">
+            <img src="<?php echo $api_image1; ?>" alt="" loading="lazy">
         </div>
     </div>
 
     <!-- Benefits Section -->
     <div class="flex gap-4 p-4 mdd:flex-col">
-        <div class="w-1/2 mdd:w-full">
-            <div class="w-full lg:min-h-[420px] h-[420px] mdd:h-[280px] bg-[#DBDBDB] rounded-lg"></div>
+        <div class="w-1/2 mdd:w-full offerings" data-partner="white-label">
+              <img src="<?php echo $wlp_image2; ?>" alt="" loading="lazy">
+        </div>
+        <div class="w-1/2 mdd:w-full offerings hidden" data-partner="api"">
+              <img src="<?php echo $api_image2; ?>" alt="" loading="lazy">
         </div>
         <div class="flex w-1/2 flex-col gap-6 p-4 mdd:w-full">
-            <h2 class="text-32 text-primary font-semibold">Benefits</h2>
-            <p class="text-20 font-main font-medium">Make WhatsApp your go-to for smooth, efficient campaign management.</p>
-
+            <h2 class="text-32 text-primary font-semibold"><?= $section_title2; ?></h2>
+            <p class="text-20 font-main font-medium"><?= $section_description2; ?></p>
 
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings" data-partner="white-label">
+            <?php foreach($wlp_offering_points2 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Brand Control:</b> Resell a fully branded solution.</div>
+                    <div><?= $point['wlp_feature_point2']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>High-Value Features:</b> Offer powerful features to your clients.</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Additional Revenue:</b> Monetize your client base with new solutions.</div>
-                </li>
+            <?php endforeach; ?>
             </ul>
 
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings hidden" data-partner="api">
+                <?php foreach($api_offering_points2 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Customization:</b> Build bespoke solutions for your clients.</div>
+                    <div><?= $point['api_feature_point2']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Total Control:</b> Full flexibility with no platform restrictions.</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div><b>Priority Support:</b> Receive dedicated support and priority onboarding.</div>
-                </li>
+                <?php endforeach; ?>
             </ul>
 
         </div>
@@ -99,45 +98,30 @@
     <!-- Pre-requisites Section -->
     <div class="flex gap-4 p-4 mdd:flex-col">
         <div class="flex w-1/2 flex-col gap-6 p-4 mdd:w-full mdd:order-2">
-            <h2 class="text-32 text-primary font-semibold">Pre-requisites</h2>
-            <p class="text-20 font-main font-medium">Use WhatsApp to connect instantly and boost customer satisfaction.</p>
-
-
+            <h2 class="text-32 text-primary font-semibold"><?= $section_title3; ?></h2>
+            <p class="text-20 font-main font-medium"><?= $section_description3; ?></p>
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings" data-partner="white-label">
+                <?php foreach($wlp_offering_points3 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>Experience in WA or Messaging Platforms</div>
+                    <div><?= $point['wlp_feature_point3']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>Understanding of Value added use cases on messaging platforms</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>SSL Certificate,  CNAME Configuration, Logo (Preferred dimensions) etc.</div>
-                </li>
+                <?php endforeach; ?>
             </ul>
-
             <ul class="flex gap-4 flex-col font-second text-4 leading-6 offerings hidden" data-partner="api">
+                <?php foreach($api_offering_points3 as $point): ?>
                 <li class="flex items-start">
                     <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>Technical expertise in API integration</div>
+                    <div><?= $point['api_feature_point3']; ?></div>
                 </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>A development team for custom solutions</div>
-                </li>
-                <li class="flex items-start">
-                    <div class="min-w-[12px] min-h-[4px] rounded-lg bg-black mr-4 mt-[11px]"></div>
-                    <div>Experience with WhatsApp or messaging platforms</div>
-                </li>
+                <?php endforeach; ?>
             </ul>
-
-
         </div>
-        <div class="w-1/2 mdd:w-full mdd:order-1">
-            <div class="w-full lg:min-h-[420px] h-[420px] mdd:h-[280px] bg-[#DBDBDB] rounded-lg"></div>
+        <div class="w-1/2 mdd:w-full offerings" data-partner="white-label">
+             <img src="<?php echo $wlp_image3; ?>" alt="" loading="lazy">
+        </div>
+        <div class="w-1/2 mdd:w-full offerings hidden" data-partner="api">
+            <img src="<?php echo $api_image3; ?>" alt="" loading="lazy">
         </div>
     </div>
-
 </section>

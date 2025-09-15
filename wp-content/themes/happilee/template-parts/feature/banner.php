@@ -10,8 +10,7 @@ $free_trial = cmb2_get_option( 'happilee-theme-options', 'happilee_free_trial_li
 
 
 <section class="container flex gap-10 py-10 mdd:flex-col mdd:py-0 mdd:px-5 mdd:gap-5 items-end">
-    <div class="flex w-1/2 lg:flex-1  p-8 gap-6 flex-col mdd:w-full order-2 md:order-1 mdd:p-4 mdd:gap-6
-">
+    <div class="flex w-1/2 lg:flex-1  p-8 gap-6 flex-col mdd:w-full order-2 md:order-1 mdd:p-4 mdd:gap-6">
         <div class="rounded-[10px] w-max text-20 leading-[22px] text-primary"><?php echo $tagline  ?></div>
         <h1 class="font-semibold text-40 leading-[44px] text-primary"><?php echo $title  ?></h1>
         <p class="text-16 leading-[24px]"><?php echo $paragraph; ?></p>

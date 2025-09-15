@@ -553,6 +553,8 @@ require get_template_directory() . '/inc/pricing_cf.php';
 require get_template_directory() . '/inc/theme_option_cf.php';
 
 require get_template_directory() . '/inc/link_generator_cf.php';
+
+require get_template_directory() . '/inc/partner_cf.php';
 /**
  * Custom cpt
  */

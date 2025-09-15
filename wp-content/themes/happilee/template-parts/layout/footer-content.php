@@ -216,6 +216,7 @@ $youtube_url    = cmb2_get_option( 'happilee-theme-options', 'happilee_youtube_u
                 <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/whatsapp-integration/')); ?>">WhatsApp Integration</a>
                 <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/whatsapp-business-api/')); ?>">WhatsApp Business API</a>
                 <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/free-whatsapp-link-generator/')); ?>">WhatsApp Chat Link Generator</a>
+                <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/whatsapp-qr-code-generator/')); ?>">WhatsApp QR Code Generator</a>
                 <a class="text-16 leading-[19px] text-primary" href="<?php echo esc_url(site_url('/whatsapp-chat-button-widget/')); ?>">WhatsApp Chat Button Generator</a>
 
             </div>
