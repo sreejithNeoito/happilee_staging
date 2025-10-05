@@ -67,6 +67,28 @@ function custom_post_types()
         'rewrite'     => array('slug' => 'landing', 'with_front' => true),
         'show_in_rest' => true,
     ));
+
+    // Case Study CPT
+    register_post_type('case_study', array(
+        'labels'      => array(
+            'name'          => __('Case Study'),
+            'singular_name' => __('Case Study'),
+            'add_new'       => __('Add Case Study'),
+            'add_new_item'  => __('Add Case Study'),
+            'edit_item'     => __('Edit Case Study'),
+            'new_item'      => __('New Case Study'),
+            'view_item'     => __('View Case Study'),
+            'search_items'  => __('Search Case Study'),
+            'not_found'     => __('No Case Study found'),
+            'not_found_in_trash' => __('No Case Study found in Trash'),
+        ),
+        'public'      => true,
+        'supports'    => array('title','thumbnail'),
+        'menu_icon' => 'dashicons-search',
+        'has_archive' => false,
+        'rewrite'     => array('slug' => 'case-study', 'with_front' => true),
+        'show_in_rest' => true,
+    ));
 }
 
 add_action('init', 'custom_post_types');

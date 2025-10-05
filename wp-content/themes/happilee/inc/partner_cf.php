@@ -300,6 +300,36 @@ function cmb2_partner_section3_metaboxes()
 
 }
 
+add_action('cmb2_admin_init', 'cmb2_register_form_metaboxes');
+
+function cmb2_register_form_metaboxes()
+{
+    $cmb = new_cmb2_box([
+        'id'            => 'happilee_partner_form',
+        'title'         => __('Register Form Section', 'happilee'),
+        'object_types'  => array('page'),
+        'show_on_cb'    => 'show_on_partner_page',
+    ]);
+
+    $cmb->add_field([
+        'name' => __('Section Description', 'happilee'),
+        'id'   => 'happilee_form_desc',
+        'type' => 'wysiwyg',
+        'options'   => array(
+            'textarea_rows' => 4,
+            'media_buttons' => false,
+            'teeny' => true,
+        ),
+    ]);
+
+    $cmb->add_field([
+        'name' => __('Form Shortcode', 'happilee'),
+        'id'   => 'form_shortcode',
+        'type' => 'text',
+        'description' => __('Paste form shortcode here', 'happilee'),
+    ]);
+}
+
 
 function show_on_partner_page($cmb)
 {

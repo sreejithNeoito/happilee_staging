@@ -20,7 +20,6 @@ get_header();
     get_template_part('template-parts/whatsapp-chat-button/banner');
     get_template_part('template-parts/whatsapp-chat-button/button');
     get_template_part('template-parts/whatsapp-chat-button/widget');
-
     get_template_part('template-parts/whatsapp-chat-button/faq');
 
     ?>

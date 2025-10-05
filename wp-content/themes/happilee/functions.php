@@ -286,7 +286,16 @@ function happilee_scripts()
 }
 add_action('wp_enqueue_scripts', 'happilee_scripts');
 
+/**
+ * Enqueue admin scripts and styles.
+ */
 
+function happilee_admin_script() {
+
+	wp_enqueue_script('happilee-admin-js',get_template_directory_uri() . '/assets/js/custom-admin-script.js',array('jquery'),'1.0',true);
+
+}
+add_action('admin_enqueue_scripts', 'happilee_admin_script');
 
 /**
  * Enqueue the block editor script.
@@ -555,6 +564,11 @@ require get_template_directory() . '/inc/theme_option_cf.php';
 require get_template_directory() . '/inc/link_generator_cf.php';
 
 require get_template_directory() . '/inc/partner_cf.php';
+
+require get_template_directory() . '/inc/whatsapp_chat_button_cf.php';
+
+require get_template_directory() . '/inc/case_study_cf.php';
+
 /**
  * Custom cpt
  */
@@ -563,6 +577,8 @@ require get_template_directory() . '/inc/testimonials_cpt.php';
 require get_template_directory() . '/inc/post_featured.php';
 
 require get_template_directory() . '/inc/search_blog.php';
+
+require get_template_directory() . '/inc/search_case_study.php';
 
 /*free whatsapp link generator */
 require get_template_directory() . '/inc/whatsapp-link-generator.php';

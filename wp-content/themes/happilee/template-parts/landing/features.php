@@ -3,7 +3,6 @@ $post_id = get_the_ID();
 
 // Fetch Features Section
 $features = get_post_meta($post_id, 'features_section', true);
-// print_r($features);
 ?>
 
 <!-- Features Section -->

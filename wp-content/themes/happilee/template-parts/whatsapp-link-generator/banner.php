@@ -8,7 +8,7 @@ $banner_content = get_post_meta(get_the_ID(), 'link_generator_content', true); ?
         <h1 class="font-semibold text-40 leading-[44px] text-primary"><?php echo $banner_title2; ?></h1>
         <p class="text-16 leading-[24px]"><?php echo $banner_content; ?></p>
     </div>
-    <div class="w-1/2 lg:w-[480px] py-0 px-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
+    <div class="w-1/2 lg:w-[480px] py-0 px-4 pt-4 md:p-8 md:pt-0 relative mdd:w-full order-1 md:order-2">
         <?php 
         if (has_post_thumbnail()): 
             $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 

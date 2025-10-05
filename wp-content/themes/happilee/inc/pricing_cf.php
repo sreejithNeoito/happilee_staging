@@ -252,8 +252,6 @@ function get_dynamic_pricing_data()
         // Handle pricing intervals
         foreach ($intervals as $interval) {
             $interval_data = get_post_meta($post->ID, $interval . '_pricing', true);
-            // print_r($interval_data[0]['enable_price']);
-
             $plan_data['pricing'][$interval] = [
                 'enabled' => isset($interval_data[0]['enable_price']) && $interval_data[0]['enable_price'],
                 'inr'         => $interval_data[0]['inr'] ?? '',
