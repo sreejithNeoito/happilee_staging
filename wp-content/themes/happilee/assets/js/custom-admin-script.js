@@ -26,6 +26,8 @@ sections.forEach((section) => {
       titleSpan.textContent = readableTitle;
     }
   }
+  
+// Add a tick mark to indicate the selected field
 
   if (checkbox && checkbox.checked) {
     const handle = section.querySelector('.cmbhandle-title');
