@@ -14,7 +14,7 @@ sections.forEach((section) => {
   
   if (checkbox && checkbox.checked) {
     const sectionType = select.value;
-    
+  
     const titleSpan = section.querySelector('.cmb-group-title span');
     if (titleSpan && sectionType) {
       // Convert value to readable title
@@ -26,7 +26,7 @@ sections.forEach((section) => {
       titleSpan.textContent = readableTitle;
     }
   }
-  
+
 // Add a tick mark to indicate the selected field
 
   if (checkbox && checkbox.checked) {
