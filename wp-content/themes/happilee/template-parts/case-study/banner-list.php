@@ -26,7 +26,13 @@ foreach($bnr_listing as $bnr_list) { ?>
             <?php } ?>
         </div>
         <div class="w-1/2 mdd:w-full mdd:justify-center lg:w-[480px] mdd:order-1 mdd:mt-5">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img-placeholder-case-study-1.webp" alt="Case Study Banner" loading="lazy">
+        <?php 
+            $banner_img_url = $bnr_list['caseBnr_list_img'];
+            $img_id         = attachment_url_to_postid($banner_img_url);
+            $img_alt        = get_post_meta($img_id, '_wp_attachment_image_alt', true);
+            $alt_text       = !empty($img_alt) ? $img_alt : 'Case Study Banner';
+            ?>
+            <img src="<?php echo $bnr_list['caseBnr_list_img']; ?>" alt="<?php echo esc_attr($alt_text); ?>" loading="lazy">
         </div>
     </section>
 <?php } ?>

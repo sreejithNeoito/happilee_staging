@@ -56,6 +56,12 @@ function cmb2_caseStudy_bnrList()
         ),
     ) );
 
+    $cmb->add_group_field($caseStudy_bnr_group, array(
+        'name' => __('Banner Image', 'happilee'),
+        'id'   => 'caseBnr_list_img',
+        'type' => 'file',
+    ));
+
     $cmb->add_group_field( $caseStudy_bnr_group, array(
 		'name'      => __('Book Demo Link', 'happilee'),
 		'id'        => 'caseBnr_book_demo',
