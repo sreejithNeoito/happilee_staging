@@ -1,19 +1,28 @@
 <?php function my_custom_gallery_metabox()
 {
+    global $pagenow;
 
+    if ($pagenow !== 'post.php') {
+        return;
+    }
 
+    $post_id = isset($_GET['post']) ? intval($_GET['post']) : 0;
 
-    $home_id = get_page_id_by_path('home');
+    if (!$post_id) {
+        return;
+    }
 
-    add_meta_box(
-        'homepage_slider_gallery',
-        'Homepage Slider Gallery',
-        'render_gallery_metabox',
-        'page',
-        'normal',
-        'high',
-        array('id' => $home_id)
-    );
+    if (get_option('page_on_front') == $post_id && get_post_type($post_id) === 'page') {
+
+        add_meta_box(
+            'homepage_slider_gallery',
+            'Homepage Slider Gallery',
+            'render_gallery_metabox',
+            'page',
+            'normal',
+            'high',
+        );
+    }
 }
 
 add_action('add_meta_boxes', 'my_custom_gallery_metabox');
