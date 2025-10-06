@@ -1,4 +1,4 @@
-<section class="mdd:p-5">
+<section class="hidden mdd:p-5 mdd:block">
     <div class="container  text-primary py-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 container bg-white rounded-[40px]">
             <a href="tel:+917012987721" target="_blank" class="flex justify-between  px-4 py-2 rounded-xl items-center gap-4 bg-[#D4E5F7]">

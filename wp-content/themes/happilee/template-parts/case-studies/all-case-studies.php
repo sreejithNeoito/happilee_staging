@@ -9,7 +9,7 @@ $posts = new WP_Query(array(
 
 <section class="container py-10 px-5">
     <div class="flex flex-col gap-6">
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center lgmd:flex-col gap-2 smd:items-start smd:gap-4">
             <div class="text-primary text-24 leading-[22px]">All <b>Case Studies</b></div>
             <div class="search-container relative max-w-96 smd:max-w-[calc(100vw-4rem)]">
                 <div class="relative w-96 smd:w-[calc(100vw-4rem)]">
