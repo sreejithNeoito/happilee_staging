@@ -3,6 +3,10 @@ $about_title    = get_post_meta(get_the_ID(), 'case_study_aboutTitle_2', true);
 $about_desc     = get_post_meta(get_the_ID(), 'case_study_aboutDesc_2', true);
 $about_details  = get_post_meta(get_the_ID(), 'caseStudy_about_group', true);
 $learn_more     = get_post_meta(get_the_ID(), 'caseStudy_learn_more', true);
+$about_img      = get_post_meta(get_the_ID(), 'case_about_img', true);
+$img_id         = attachment_url_to_postid($about_img);
+$img_alt        = get_post_meta($img_id, '_wp_attachment_image_alt', true);
+$alt_text       = !empty($img_alt) ? $img_alt : 'About Image';
 ?>
 
 <section class="container py-10 px-5">
@@ -31,7 +35,7 @@ $learn_more     = get_post_meta(get_the_ID(), 'caseStudy_learn_more', true);
             <?php } ?>
         </div>
         <div class="w-1/2 mdd:w-full mdd:mb-[10px] mdd:justify-center flex gap-6 justify-end mdd:order-1">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/tem-placeholder/about-img-placeholder.webp">
+            <img src="<?php echo $about_img; ?>" alt="<?php echo esc_attr($alt_text); ?>" loading="lazy">
         </div>
     </div>
 </section>
