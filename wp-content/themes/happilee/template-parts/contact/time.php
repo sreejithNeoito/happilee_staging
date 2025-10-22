@@ -11,7 +11,7 @@
                 </div>
                 <div class="space-y-4 leading-6">
                     <p class="text-16">Phone:<br><b><span class="text-[17px]">+91 7012987721</span></b></p>
-                    <p class="text-16">Email:<br><b><span class="text-[17px]">sales@happilee.io</span></b></p>
+                    <p class="text-16">Email:<br><b><span class="text-[17px]">support@happilee.io</span></b></p>
                 </div>
             </div>
             <div class="w-full space-y-6 p-8">
