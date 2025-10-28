@@ -4,7 +4,7 @@
             <!-- smd:max-w-[300px] smd:flex-col -->
 
             <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">
-                <span class="md:block">Boom yours</span> <b>Business on <span class=" text-[#28B53E]">WhatsApp</span></b>
+                <span class="md:block">Boom yours.</span> <b>Business on <span class=" text-[#28B53E]">WhatsApp</span></b>
             </h1>
 
             <!-- <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">Boom yours <b class="block">Business on <span class="text-[#28B53E]">WhatsApp</span></b>
