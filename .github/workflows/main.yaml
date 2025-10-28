@@ -12,79 +12,75 @@ jobs:
     env:
       REMOTE_HOST: ${{ secrets.HOST }}
       REMOTE_USER: ${{ secrets.USERNAME }}
-      SSH_KEY: ${{ secrets.KEY }}
+      SSH_PRIVATE_KEY: ${{ secrets.KEY }}
       REMOTE_ROOT: /var/www/happilee_staging
       REMOTE_WP: /var/www/happilee_staging/wp-content
       REMOTE_THEMES: /var/www/happilee_staging/wp-content/themes
+      BACKUP_DIR: /var/backups/happilee
 
     steps:
-      - name: Checkout latest code
-      # Pull the exact commit that triggered this run
+      - name: Checkout correct ref
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.branch || github.ref }}
+          fetch-depth: 0
 
       - name: Prepare SSH
         shell: bash
         run: |
+          set -euo pipefail
           mkdir -p ~/.ssh
-          echo "${SSH_KEY}" > ~/.ssh/id_rsa
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          # Pre-accept host key to avoid interactive prompt
           ssh-keyscan -H "${REMOTE_HOST}" >> ~/.ssh/known_hosts
 
       - name: Create deploy archive (themes only)
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -d "wp-content/themes" ]; then
-            echo "wp-content/themes not found in repo."
-            exit 1
-          fi
+          test -d "wp-content/themes" || { echo "wp-content/themes not found"; exit 1; }
           DEPLOY_PKG="themes-${GITHUB_SHA}.tar.gz"
-          # Create archive with "themes/" at the root of the tar
+          # Archive will contain "themes/" at top-level
           tar -C wp-content -czf "${DEPLOY_PKG}" themes
-          echo "DEPLOY_PKG=${DEPLOY_PKG}" >> $GITHUB_ENV
+          echo "DEPLOY_PKG=${DEPLOY_PKG}" >> "$GITHUB_ENV"
 
       - name: Upload archive via scp
         shell: bash
         run: |
-          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "${DEPLOY_PKG}" "${REMOTE_USER}@${REMOTE_HOST}:/tmp/${DEPLOY_PKG}"
+          set -euo pipefail
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no \
+            "${{ env.DEPLOY_PKG }}" \
+            "${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:/tmp/${{ env.DEPLOY_PKG }}"
 
       - name: Deploy on remote via ssh
         shell: bash
         run: |
-          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "${REMOTE_USER}@${REMOTE_HOST}" bash -s << 'REMOTE_EOF'
+          set -euo pipefail
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no \
+            "${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}" \
+            DEPLOY_PKG="${{ env.DEPLOY_PKG }}" REMOTE_ROOT="${{ env.REMOTE_ROOT }}" REMOTE_WP="${{ env.REMOTE_WP }}" REMOTE_THEMES="${{ env.REMOTE_THEMES }}" BACKUP_DIR="${{ env.BACKUP_DIR }}" 'bash -s' << 'REMOTE_EOF'
           set -euo pipefail
 
-          REMOTE_ROOT="/var/www/happilee_staging"
-          REMOTE_WP="${REMOTE_ROOT}/wp-content"
-          REMOTE_THEMES="${REMOTE_WP}/themes"
-          PKG="/tmp/themes-${GITHUB_SHA}.tar.gz"
-          BACKUP_DIR="/var/backups/happilee"
           TS="$(date +%Y%m%d_%H%M%S)"
+          PKG="/tmp/${DEPLOY_PKG}"
 
           echo "🚀 Starting WordPress themes deployment on $(hostname)"
           echo "📦 Package: ${PKG}"
 
-          if [ ! -f "${PKG}" ]; then
-            echo "Archive not found at ${PKG}"
-            exit 1
-          fi
+          # Sanity checks
+          test -f "${PKG}" || { echo "Archive not found at ${PKG}"; exit 1; }
+          sudo mkdir -p "${REMOTE_THEMES}" "${BACKUP_DIR}"
 
-          echo "🧰 Ensuring directories exist..."
-          sudo mkdir -p "${REMOTE_THEMES}"
-          sudo mkdir -p "${BACKUP_DIR}"
-
-          echo "🗄️ Creating backup of existing themes -> ${BACKUP_DIR}/themes-${TS}.tar.gz"
-          # Backup current themes directory contents (even if empty)
+          echo "🗄️ Backing up current themes -> ${BACKUP_DIR}/themes-${TS}.tar.gz"
+          # Back up the entire themes dir (ok if empty)
           sudo tar -czf "${BACKUP_DIR}/themes-${TS}.tar.gz" -C "${REMOTE_WP}" themes || true
           sudo ls -lh "${BACKUP_DIR}/themes-${TS}.tar.gz" || true
 
-          echo "📤 Extracting new themes package into ${REMOTE_WP}"
-          # The tar has "themes/" as top-level; extract over existing
+          echo "📤 Extracting new themes into ${REMOTE_WP}"
+          # Extract (overwrites/updates files that changed; preserves others)
           sudo tar -xzf "${PKG}" -C "${REMOTE_WP}"
 
-          echo "🔒 Fixing permissions..."
-          # Adjust these user/group if your stack uses something else (e.g., www-data/nginx)
+          echo "🔒 Fixing ownership/permissions..."
           if id www-data &>/dev/null; then
             sudo chown -R www-data:www-data "${REMOTE_THEMES}"
           fi
@@ -92,7 +88,6 @@ jobs:
           sudo chmod -R 775 "${REMOTE_WP}/uploads" 2>/dev/null || true
 
           echo "🔄 Reloading services..."
-          # Adjust service names to your server (php8.1-fpm/nginx)
           sudo systemctl reload nginx || sudo systemctl restart nginx
           if systemctl list-units --type=service | grep -q php8.1-fpm; then
             sudo systemctl restart php8.1-fpm
@@ -109,5 +104,8 @@ jobs:
           REMOTE_EOF
 
       - name: Summary
+        shell: bash
         run: |
-          echo "Deployed ${GITHUB_SHA} to ${REMOTE_HOST}:${REMOTE_THEMES}"
+          echo "Deployed $GITHUB_SHA"
+          echo "Archive: ${{ env.DEPLOY_PKG }}"
+          echo "Remote:  ${{ env.REMOTE_HOST }}:${{ env.REMOTE_THEMES }}"
