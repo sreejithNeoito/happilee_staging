@@ -2,57 +2,112 @@ name: Deploy to EC2
 on:
   push:
     branches: [main]
+    paths:
+      - 'wp-content/themes/**'
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+      REMOTE_HOST: ${{ secrets.HOST }}
+      REMOTE_USER: ${{ secrets.USERNAME }}
+      SSH_KEY: ${{ secrets.KEY }}
+      REMOTE_ROOT: /var/www/happilee_staging
+      REMOTE_WP: /var/www/happilee_staging/wp-content
+      REMOTE_THEMES: /var/www/happilee_staging/wp-content/themes
+
     steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          script: |
-            echo "🚀 Starting deployment to production server..."
-            echo "⏰ Deployment started at: $(date)"
+      - name: Checkout latest code
+      # Pull the exact commit that triggered this run
+        uses: actions/checkout@v4
 
-            echo "📂 Navigating to project directory..."
-            cd /var/www/happilee_staging
-            echo "✅ Current directory: $(pwd)"
+      - name: Prepare SSH
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          echo "${SSH_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          # Pre-accept host key to avoid interactive prompt
+          ssh-keyscan -H "${REMOTE_HOST}" >> ~/.ssh/known_hosts
 
-            echo "🔧 Setting up git authentication..."
-            sudo -u www-data git remote set-url origin https://${{ secrets.GIT_USERNAME }}:${{ secrets.GIT_TOKEN }}@github.com/sreejithNeoito/happilee_staging.git && sudo -u www-data git stash save
-            echo "✅ Git authentication configured"
+      - name: Create deploy archive (themes only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -d "wp-content/themes" ]; then
+            echo "wp-content/themes not found in repo."
+            exit 1
+          fi
+          DEPLOY_PKG="themes-${GITHUB_SHA}.tar.gz"
+          # Create archive with "themes/" at the root of the tar
+          tar -C wp-content -czf "${DEPLOY_PKG}" themes
+          echo "DEPLOY_PKG=${DEPLOY_PKG}" >> $GITHUB_ENV
 
-            echo "📥 Pulling latest changes from main branch..."
-            if sudo -u www-data git pull origin main; then
-              echo "✅ Git pull completed successfully"
-            else
-              echo "❌ Git pull failed!"
-              exit 1
-            fi
+      - name: Upload archive via scp
+        shell: bash
+        run: |
+          scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "${DEPLOY_PKG}" "${REMOTE_USER}@${REMOTE_HOST}:/tmp/${DEPLOY_PKG}"
 
-            echo "🧹 Cleaning up git authentication..."
-            sudo -u www-data git remote set-url origin https://github.com/sreejithNeoito/happilee_staging.git
-            echo "✅ Git authentication cleaned up"
+      - name: Deploy on remote via ssh
+        shell: bash
+        run: |
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no "${REMOTE_USER}@${REMOTE_HOST}" bash -s << 'REMOTE_EOF'
+          set -euo pipefail
 
-            echo "🔒 Setting file permissions..."
-            sudo chmod -R 755 .
-            sudo chmod -R 775 wp-content/uploads/ 2>/dev/null || true
-            echo "✅ File permissions updated"
+          REMOTE_ROOT="/var/www/happilee_staging"
+          REMOTE_WP="${REMOTE_ROOT}/wp-content"
+          REMOTE_THEMES="${REMOTE_WP}/themes"
+          PKG="/tmp/themes-${GITHUB_SHA}.tar.gz"
+          BACKUP_DIR="/var/backups/happilee"
+          TS="$(date +%Y%m%d_%H%M%S)"
 
-            echo "🔄 Restarting services..."
-            if sudo systemctl reload nginx; then
-              echo "✅ Nginx reloaded successfully"
-            else
-              echo "❌ Nginx reload failed!"
-            fi
+          echo "🚀 Starting WordPress themes deployment on $(hostname)"
+          echo "📦 Package: ${PKG}"
 
-            if sudo systemctl restart php8.1-fpm; then
-              echo "✅ PHP-FPM restarted successfully"
-            else
-              echo "❌ PHP-FPM restart failed!"
-            fi
+          if [ ! -f "${PKG}" ]; then
+            echo "Archive not found at ${PKG}"
+            exit 1
+          fi
 
-            echo "🎉 Deployment completed successfully!"
-            echo "⏰ Deployments finished at: $(date)"
+          echo "🧰 Ensuring directories exist..."
+          sudo mkdir -p "${REMOTE_THEMES}"
+          sudo mkdir -p "${BACKUP_DIR}"
+
+          echo "🗄️ Creating backup of existing themes -> ${BACKUP_DIR}/themes-${TS}.tar.gz"
+          # Backup current themes directory contents (even if empty)
+          sudo tar -czf "${BACKUP_DIR}/themes-${TS}.tar.gz" -C "${REMOTE_WP}" themes || true
+          sudo ls -lh "${BACKUP_DIR}/themes-${TS}.tar.gz" || true
+
+          echo "📤 Extracting new themes package into ${REMOTE_WP}"
+          # The tar has "themes/" as top-level; extract over existing
+          sudo tar -xzf "${PKG}" -C "${REMOTE_WP}"
+
+          echo "🔒 Fixing permissions..."
+          # Adjust these user/group if your stack uses something else (e.g., www-data/nginx)
+          if id www-data &>/dev/null; then
+            sudo chown -R www-data:www-data "${REMOTE_THEMES}"
+          fi
+          sudo chmod -R 755 "${REMOTE_ROOT}"
+          sudo chmod -R 775 "${REMOTE_WP}/uploads" 2>/dev/null || true
+
+          echo "🔄 Reloading services..."
+          # Adjust service names to your server (php8.1-fpm/nginx)
+          sudo systemctl reload nginx || sudo systemctl restart nginx
+          if systemctl list-units --type=service | grep -q php8.1-fpm; then
+            sudo systemctl restart php8.1-fpm
+          elif systemctl list-units --type=service | grep -q php8.2-fpm; then
+            sudo systemctl restart php8.2-fpm
+          else
+            echo "⚠️ PHP-FPM service not found (php8.1-fpm/php8.2-fpm). Skipping."
+          fi
+
+          echo "🧹 Cleaning up package..."
+          sudo rm -f "${PKG}"
+
+          echo "🎉 Deployment completed successfully!"
+          REMOTE_EOF
+
+      - name: Summary
+        run: |
+          echo "Deployed ${GITHUB_SHA} to ${REMOTE_HOST}:${REMOTE_THEMES}"
