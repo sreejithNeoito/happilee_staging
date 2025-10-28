@@ -4,10 +4,10 @@
             <!-- smd:max-w-[300px] smd:flex-col -->
 
             <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">
-                <span class="md:block">Boom your</span> <b>Business on <span class=" text-[#28B53E]">WhatsApp</span></b>
+                <span class="md:block">Boom yours</span> <b>Business on <span class=" text-[#28B53E]">WhatsApp</span></b>
             </h1>
 
-            <!-- <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">Boom your <b class="block">Business on <span class="text-[#28B53E]">WhatsApp</span></b>
+            <!-- <h1 class="leading-[43.52px] text-40  font-normal font-main text-primary mdd:text-28 mdd:leading-[30px]">Boom yours <b class="block">Business on <span class="text-[#28B53E]">WhatsApp</span></b>
             </h1> -->
             <!-- <svg class="smd:-mt-6 md:absolute md:left-[244px] md:bottom-12" width="114" height="58" viewBox="0 0 114 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="path-arrow" d="M113 4.00013C113 4.00013 46.4691 3.64648 44.728 39.386C42.9869 75.1256 99.015 49.07 73.4902 26.3623C54.4558 9.42868 13.6892 38.4568 0.999998 53.3222" stroke="#0B3966" stroke-width="1.5" stroke-miterlimit="3.8637" stroke-dasharray="1 4" />
